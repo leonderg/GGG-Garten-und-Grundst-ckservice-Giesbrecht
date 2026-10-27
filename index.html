@@ -52,1002 +52,1048 @@
             backdrop-filter: blur(10px);
         }
         .hero-gradient {
-            background: linear-gradient(135deg, rgba(15, 41, 30, 0.92) 0%, rgba(22, 101, 52, 0.85) 100%);
+            background: linear-gradient(135deg, rgba(15, 41, 30, 0.93) 0%, rgba(22, 101, 52, 0.88) 100%);
             background-size: cover;
             background-position: center;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f7f2e8;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c5a880;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body class="font-sans text-slateDark bg-sand-50 antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Top Contact Bar -->
-    <div class="bg-brand-dark text-slate-200 text-xs sm:text-sm py-2 px-4">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex items-center gap-4">
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-500"></i> Löhne, Bünde, Bad Oeynhausen, Herford &amp; Umgebung</span>
-                <span class="hidden md:flex items-center gap-1.5"><i class="fa-solid fa-shield-check text-brand-500"></i> Kleinunternehmer § 19 UStG</span>
+<!-- Top Contact Bar -->
+<div class="bg-brand-dark text-slate-200 text-xs sm:text-sm py-2 px-4 border-b border-brand-900">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div class="flex items-center gap-4">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-500"></i> Löhne, Bünde, Bad Oeynhausen &amp; Herford</span>
+            <span class="hidden md:flex items-center gap-1.5"><i class="fa-solid fa-shield-check text-brand-500"></i> Kleinunternehmer § 19 UStG</span>
+        </div>
+        <div class="flex items-center gap-4 font-medium">
+            <a href="tel:+4915750155796" class="hover:text-brand-500 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-phone text-brand-500"></i> +49 1575 0155796</a>
+            <a href="https://wa.me/4915750155796" target="_blank" class="hover:text-brand-500 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-whatsapp text-green-400 text-base"></i> WhatsApp Direkt-Chat</a>
+        </div>
+    </div>
+</div>
+
+<!-- Header mit Pop-up Menü Trigger -->
+<header class="sticky top-0 z-40 glass-header border-b border-sand-200 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <a href="#start" class="flex items-center gap-3">
+                <img src="logo.png" alt="GGG Garten &amp; Grundstücksservice Giesbrecht" class="h-14 sm:h-16 w-auto object-contain">
+            </a>
+
+            <button id="nav-popup-open" class="bg-brand-700 hover:bg-brand-800 text-white p-3 px-4 rounded-xl flex items-center gap-2.5 font-semibold text-sm transition-all shadow-md">
+                <i class="fa-solid fa-bars text-xl"></i>
+                <span>Menü</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Fullscreen Nav Pop-up -->
+<div id="nav-popup" class="hidden fixed inset-0 z-50 bg-brand-dark/95 backdrop-blur-md text-white flex flex-col justify-between p-6 sm:p-12 transition-all duration-300">
+    <div class="flex justify-between items-center max-w-7xl mx-auto w-full">
+        <div class="flex items-center gap-3">
+            <img src="logo.png" alt="GGG Logo" class="h-12 w-auto object-contain bg-white rounded-lg p-1">
+            <span class="font-heading font-bold text-lg text-white">GGG Giesbrecht</span>
+        </div>
+        <button id="nav-popup-close" class="p-3 text-slate-300 hover:text-white text-3xl focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <div class="max-w-2xl mx-auto w-full my-auto py-8">
+        <nav class="flex flex-col space-y-6 text-center font-heading text-2xl sm:text-4xl font-bold">
+            <a href="#start" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors">Startseite</a>
+            <a href="#leistungen" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors">Unsere Leistungen</a>
+            <a href="#kalkulator" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors text-brand-300"><i class="fa-solid fa-calculator mr-2"></i> Orientierungspreis</a>
+            <a href="#vorher-nachher" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors">Vorher / Nachher</a>
+            <a href="#ueber-mich" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors">Über Mich</a>
+            <a href="#kontakt" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors">Kontakt &amp; Anfahrt</a>
+        </nav>
+    </div>
+
+    <div class="max-w-xl mx-auto w-full border-t border-white/10 pt-6 text-center">
+        <p class="text-xs text-slate-300 mb-4">Schnellkontakt vor Ort in Löhne &amp; Umgebung:</p>
+        <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold">
+            <a href="tel:+4915750155796" class="bg-white/10 hover:bg-white/20 px-5 py-2.5 rounded-xl flex items-center gap-2">
+                <i class="fa-solid fa-phone text-brand-400"></i> +49 1575 0155796
+            </a>
+            <a href="https://wa.me/4915750155796" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-xl flex items-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Chat
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section id="start" class="hero-gradient text-white py-20 lg:py-28 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 bg-brand-500/20 backdrop-blur-md border border-brand-400/30 text-brand-200 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium mb-6">
+                <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                Einsatzbereit in Löhne, Bünde, Bad Oeynhausen &amp; Herford
             </div>
-            <div class="flex items-center gap-4 font-medium">
-                <a href="tel:+4915750155796" class="hover:text-brand-500 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-phone text-brand-500"></i> Anrufen</a>
-                <a href="https://wa.me/4915750155796" target="_blank" class="hover:text-brand-500 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-whatsapp text-green-400 text-base"></i> WhatsApp Blitz-Kontakt</a>
+
+            <h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight mb-6">
+                Ihr zuverlässiger Partner für Garten &amp; Grundstück
+            </h1>
+
+            <p class="text-base sm:text-xl text-slate-200 font-light mb-8 leading-relaxed">
+                Rasenpflege, Heckenschnitt, Rindenmulch-Service, Dachrinnenreinigung &amp; Terrassenpflege. Ehrlich, pünktlich und fair aus Löhne.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                <a href="#kalkulator" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-brand-900/40 text-center transition-all flex items-center justify-center gap-2 group">
+                    <span>Orientierungspreis anzeigen</span>
+                    <i class="fa-solid fa-calculator group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="https://wa.me/4915750155796?text=Hallo%20Mike,%20ich%20interessiere%20mich%20f%C3%BCr%20deine%20Unterst%C3%BCtzung%20im%20Garten." target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-semibold px-8 py-4 rounded-xl text-center transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-green-400 text-xl"></i>
+                    <span>WhatsApp Direkt-Chat</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/10 text-xs sm:text-sm text-slate-300">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-500"></i> 100% Zuverlässig</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-500"></i> Faire 30 € / Std.</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-500"></i> Keine MwSt. (§ 19)</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-500"></i> Gratis Besichtigung</div>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Main Navigation Bar -->
-    <header class="sticky top-0 z-40 glass-header border-b border-sand-200 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                
-                <!-- Logo -->
-                <a href="#start" class="flex items-center gap-3">
-                    <img src="logo.png" alt="GGG Garten &amp; Grundstücksservice Giesbrecht" class="h-14 sm:h-16 w-auto object-contain">
+<!-- Vorteile -->
+<section id="vorteile" class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Ihre Vorteile mit GGG</span>
+            <h2 class="font-heading text-2xl sm:text-4xl font-bold text-slateDark mt-2">Warum Kunden in Löhne sich für GGG entscheiden</h2>
+            <div class="w-16 h-1 bg-brand-600 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-sand-50 p-6 rounded-2xl border border-sand-200 hover:shadow-lg transition-all duration-300">
+                <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-2xl mb-5">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <h3 class="font-heading font-bold text-lg mb-2 text-slateDark">Pünktlich &amp; Verlässlich</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Vereinbarte Termine halte ich strikt ein. Sie müssen nicht stundenlang warten – ich komme wie verabredet.
+                </p>
+            </div>
+
+            <div class="bg-sand-50 p-6 rounded-2xl border border-sand-200 hover:shadow-lg transition-all duration-300">
+                <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-2xl mb-5">
+                    <i class="fa-solid fa-hand-holding-hand"></i>
+                </div>
+                <h3 class="font-heading font-bold text-lg mb-2 text-slateDark">Saubere Handarbeit</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Gründliche Ausführung bei Rasen-, Hecken- und Reinigungsarbeiten rund um Ihr Eigenheim.
+                </p>
+            </div>
+
+            <div class="bg-sand-50 p-6 rounded-2xl border border-sand-200 hover:shadow-lg transition-all duration-300">
+                <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-2xl mb-5">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+                <h3 class="font-heading font-bold text-lg mb-2 text-slateDark">Faire &amp; Klare Preise</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Klarer Stundensatz von 30 €/Std. Transparente Kosten ohne versteckte Nebengebühren.
+                </p>
+            </div>
+
+            <div class="bg-sand-50 p-6 rounded-2xl border border-sand-200 hover:shadow-lg transition-all duration-300">
+                <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-2xl mb-5">
+                    <i class="fa-solid fa-trailer"></i>
+                </div>
+                <h3 class="font-heading font-bold text-lg mb-2 text-slateDark">Eigener PKW-Anhänger</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Grünschnitt wird direkt auf den Anhänger geladen und unkompliziert entsorgt (15 € / Hängerladung).
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Leistungsübersicht -->
+<section id="leistungen" class="py-16 lg:py-24 bg-sand-100/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Klar strukturierter Service</span>
+            <h2 class="font-heading text-2xl sm:text-4xl font-bold text-slateDark mt-2">Dienstleistungen im Überblick</h2>
+            <p class="text-slate-600 mt-3 text-sm sm:text-base">Fokussiert auf die Arbeiten, die Ihr Grundstück wieder ordentlich aussehen lassen.</p>
+            <div class="w-16 h-1 bg-brand-600 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Kategorie 1 -->
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-sand-200 hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-scissors"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-2xl text-slateDark mb-3">1. Rasenpflege &amp; Grünflächen</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Regelmäßiges Mähen und Saubermachen für eine gepflegte Rasenfläche.</p>
+
+                    <ul class="text-slate-700 text-sm space-y-3 mb-8">
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Rasenmähen &amp; Kanten trimmen</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Rasenschnitt &amp; Laub einsammeln</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Vertikutieren &amp; Rasen lüften</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Nachsaat &amp; Düngung</li>
+                    </ul>
+                </div>
+
+                <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-3 rounded-xl transition-all text-sm block">
+                    Preis schätzen
                 </a>
+            </div>
 
-                <!-- Desktop Nav -->
-                <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold">
-                    <a href="#start" class="hover:text-brand-700 transition-colors">Start</a>
-                    <a href="#leistungen" class="hover:text-brand-700 transition-colors">Leistungen</a>
-                    <a href="#vorteile" class="hover:text-brand-700 transition-colors">Warum GGG?</a>
-                    <a href="#vorher-nachher" class="hover:text-brand-700 transition-colors">Vorher / Nachher</a>
-                    <a href="#kalkulator" class="text-brand-700 bg-brand-50 px-3 py-1.5 rounded-lg border border-brand-200 hover:bg-brand-100 transition-all"><i class="fa-solid fa-calculator mr-1"></i> Preiskalkulator</a>
-                    <a href="#ueber-mich" class="hover:text-brand-700 transition-colors">Über Mich</a>
-                </nav>
+            <!-- Kategorie 2 -->
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-sand-200 hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-2xl text-slateDark mb-3">2. Hecken- &amp; Strauchschnitt</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Formschnitt und Pflege von Hecken und Sträuchern bis ca. 2,5 m Höhe.</p>
 
-                <!-- Desktop CTA -->
-                <div class="hidden lg:flex items-center gap-3">
-                    <a href="#kalkulator" class="bg-brand-700 hover:bg-brand-800 text-white font-medium px-5 py-2.5 rounded-xl shadow-md shadow-brand-700/20 hover:shadow-lg transition-all text-sm flex items-center gap-2">
-                        <span>Angebot anfragen</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
+                    <ul class="text-slate-700 text-sm space-y-3 mb-8">
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Form- &amp; Rückschnitt von Hecken</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Sträucher &amp; Gebüsch stutzen</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Kleiner Gehölzschnitt</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Verladen &amp; Abtransport per Anhänger</li>
+                    </ul>
                 </div>
 
-                <!-- Mobile Hamburger Button -->
-                <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slateDark hover:bg-sand-100 focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
+                <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-3 rounded-xl transition-all text-sm block">
+                    Preis schätzen
+                </a>
+            </div>
+
+            <!-- Kategorie 3 -->
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-sand-200 hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-house-chimney-window"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-2xl text-slateDark mb-3">3. Grundstücks- &amp; Objektpflege</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Nützliche Hilfen rund um Haus, Terrasse und Grundstücke.</p>
+
+                    <ul class="text-slate-700 text-sm space-y-3 mb-8">
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Rindenmulch anliefern &amp; verteilen</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Dachrinnenreinigung (Einfamilienhäuser)</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Terrassen- &amp; Wegereinigung</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Urlaubs- &amp; Objektbetreuung</li>
+                    </ul>
                 </div>
+
+                <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-3 rounded-xl transition-all text-sm block">
+                    Preis schätzen
+                </a>
+            </div>
+
+        </div>
+
+        <div class="mt-8 bg-brand-50 border border-brand-200 rounded-2xl p-6 text-center max-w-3xl mx-auto">
+            <span class="font-heading font-bold text-slateDark block text-base mb-1">Sie haben Sonderwünsche oder kleine Reparaturen?</span>
+            <p class="text-xs sm:text-sm text-slate-600">Ob Gartenschuppen ausräumen, Mülltonnen-Service im Urlaub oder kleine Instandhaltungen – fragen Sie ganz unverbindlich an!</p>
+        </div>
+    </div>
+</section>
+
+<!-- Preiskalkulator -->
+<section id="kalkulator" class="py-16 lg:py-24 bg-brand-dark text-white relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <span class="bg-brand-500/20 text-brand-300 border border-brand-500/30 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Faire Orientierung</span>
+            <h2 class="font-heading text-2xl sm:text-4xl font-bold mt-2">Unverbindlicher Start-Richtwert</h2>
+            <p class="text-slate-300 text-sm sm:text-base mt-2">Wählen Sie Ihre Leistungen und geben Sie Ihren Ort ein – für eine transparente Ersteinschätzung.</p>
+        </div>
+
+        <div class="bg-white text-slateDark rounded-3xl p-6 sm:p-10 shadow-2xl">
+
+            <!-- 1. Wunschleistungen -->
+            <div class="mb-8">
+                <label class="block font-heading font-bold text-base sm:text-lg text-slateDark mb-4 border-b border-sand-200 pb-2">
+                    1. Gewünschte Leistungen wählen:
+                </label>
+
+                <div class="space-y-5">
+                    <div class="bg-sand-50/70 p-4 rounded-2xl border border-sand-200">
+                            <span class="text-xs font-bold uppercase text-brand-700 tracking-wider flex items-center gap-2 mb-2">
+                                <i class="fa-solid fa-scissors"></i> Rasenpflege
+                            </span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <label class="flex items-center p-2.5 bg-white rounded-xl border border-sand-200 cursor-pointer hover:border-brand-500 transition-colors">
+                                <input type="checkbox" id="chk-rasen" class="calc-trigger w-5 h-5 accent-brand-600 rounded" checked>
+                                <span class="ml-3 font-semibold text-xs sm:text-sm">Rasenmähen &amp; Kanten</span>
+                            </label>
+                            <label class="flex items-center p-2.5 bg-white rounded-xl border border-sand-200 cursor-pointer hover:border-brand-500 transition-colors">
+                                <input type="checkbox" id="chk-vertikutieren" class="calc-trigger w-5 h-5 accent-brand-600 rounded">
+                                <span class="ml-3 font-semibold text-xs sm:text-sm">Vertikutieren &amp; Nachsaat</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-sand-50/70 p-4 rounded-2xl border border-sand-200">
+                            <span class="text-xs font-bold uppercase text-brand-700 tracking-wider flex items-center gap-2 mb-2">
+                                <i class="fa-solid fa-tree"></i> Hecken &amp; Gehölze
+                            </span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <label class="flex items-center p-2.5 bg-white rounded-xl border border-sand-200 cursor-pointer hover:border-brand-500 transition-colors">
+                                <input type="checkbox" id="chk-hecke" class="calc-trigger w-5 h-5 accent-brand-600 rounded">
+                                <span class="ml-3 font-semibold text-xs sm:text-sm">Hecken- / Strauchschnitt</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-sand-50/70 p-4 rounded-2xl border border-sand-200">
+                            <span class="text-xs font-bold uppercase text-brand-700 tracking-wider flex items-center gap-2 mb-2">
+                                <i class="fa-solid fa-house-chimney-window"></i> Grundstück &amp; Haus
+                            </span>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <label class="flex items-center p-2.5 bg-white rounded-xl border border-sand-200 cursor-pointer hover:border-brand-500 transition-colors">
+                                <input type="checkbox" id="chk-mulch" class="calc-trigger w-5 h-5 accent-brand-600 rounded">
+                                <span class="ml-3 font-semibold text-xs sm:text-sm">Rindenmulch verteilen</span>
+                            </label>
+                            <label class="flex items-center p-2.5 bg-white rounded-xl border border-sand-200 cursor-pointer hover:border-brand-500 transition-colors">
+                                <input type="checkbox" id="chk-dachrinne" class="calc-trigger w-5 h-5 accent-brand-600 rounded">
+                                <span class="ml-3 font-semibold text-xs sm:text-sm">Dachrinnenreinigung</span>
+                            </label>
+                            <label class="flex items-center p-2.5 bg-white rounded-xl border border-sand-200 cursor-pointer hover:border-brand-500 transition-colors">
+                                <input type="checkbox" id="chk-terrasse" class="calc-trigger w-5 h-5 accent-brand-600 rounded">
+                                <span class="ml-3 font-semibold text-xs sm:text-sm">Terrassenreinigung</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Parameter -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label class="block font-heading font-bold text-sm text-slateDark mb-2">2. Ungefährer Aufwand:</label>
+                    <select id="sel-aufwand" class="calc-trigger w-full p-3.5 border border-sand-300 rounded-xl font-medium text-xs sm:text-sm bg-white outline-none focus:ring-2 focus:ring-brand-500">
+                        <option value="kompakt" selected>Kompakt / Vorgarten (bis ca. 250 m²)</option>
+                        <option value="standard">Standard Einfamilienhaus (ca. 250 – 600 m²)</option>
+                        <option value="umfangreich">Umfangreich / Großes Grundstück (über 600 m²)</option>
+                    </select>
+                    <span class="block text-[11px] text-slate-500 mt-1.5">Dient als Richtwert für den zeitlichen Arbeitsaufwand.</span>
+                </div>
+
+                <div id="haenger-box" class="transition-all duration-300">
+                    <label class="block font-heading font-bold text-sm text-slateDark mb-2">3. Grünschnitt-Mitnahme (PKW-Anhänger)?</label>
+                    <select id="sel-haenger" class="calc-trigger w-full p-3.5 border border-sand-300 rounded-xl font-medium text-xs sm:text-sm bg-white outline-none focus:ring-2 focus:ring-brand-500">
+                        <option value="0" selected>Nein (Schnittgut verbleibt vor Ort)</option>
+                        <option value="15">Ja, 1 Anhängerladung (+ 15,00 € Pauschale)</option>
+                        <option value="30">Ja, 2 Anhängerladungen (+ 30,00 € Pauschale)</option>
+                    </select>
+                    <span class="block text-[11px] text-slate-500 mt-1.5">Inkl. fachgerechter Entsorgung auf dem Wertstoffhof.</span>
+                </div>
+            </div>
+
+            <!-- Live Autocomplete Adressfeld -->
+            <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 mb-6">
+                <label class="block font-heading font-bold text-sm text-slateDark mb-2">
+                    4. Einsatzort auswählen:
+                </label>
+
+                <div class="relative">
+                    <input type="text" id="calc-address" autocomplete="off" placeholder="Tippen Sie Ihre Straße oder PLZ..." class="w-full p-3.5 pr-10 border border-sand-300 rounded-xl font-medium text-xs sm:text-sm outline-none focus:ring-2 focus:ring-brand-500 bg-white shadow-sm transition-all">
+                    <i class="fa-solid fa-location-dot absolute right-4 top-4 text-brand-600"></i>
+
+                    <ul id="address-suggestions" class="absolute z-50 w-full bg-white border border-sand-200 rounded-xl shadow-2xl mt-2 hidden max-h-60 overflow-y-auto custom-scrollbar"></ul>
+                </div>
+
+                <div id="dist-status" class="mt-3 text-xs leading-relaxed transition-all">
+                    <span class="text-slate-500">📍 Bitte fangen Sie an zu tippen und wählen Sie Ihre Adresse aus der Liste.</span>
+                </div>
+            </div>
+
+            <!-- Ergebnis -->
+            <div class="bg-brand-50 border border-brand-200 rounded-2xl p-6 text-center my-6">
+                <span class="text-xs uppercase tracking-wider font-bold text-brand-800">Unverbindlicher Richtwert</span>
+                <div id="price-result" class="text-3xl sm:text-5xl font-heading font-extrabold text-brand-800 my-2">ab ca. 30 €</div>
+                <p class="text-xs text-slate-600 max-w-lg mx-auto leading-relaxed">
+                    Basierend auf 30 € / Std. <strong>Festpreis-Garantie:</strong> Den genauen Endpreis besprechen und vereinbaren wir ganz transparent und kostenlos nach einer persönlichen Besichtigung vor Ort – ohne Überraschungen!
+                </p>
+            </div>
+
+            <!-- Aktion Buttons -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <button onclick="sendCalcToWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all text-sm">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Anfrage per WhatsApp senden</span>
+                </button>
+                <a href="#kontakt" class="bg-brand-800 hover:bg-brand-900 text-white font-semibold py-4 px-4 rounded-xl shadow-md text-center block transition-all flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Kostenlosen Termin anfragen</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Vorher / Nachher -->
+<section id="vorher-nachher" class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Ergebnisse sprechen lassen</span>
+            <h2 class="font-heading text-2xl sm:text-4xl font-bold text-slateDark mt-2">Vorher / Nachher Einblicke</h2>
+            <p class="text-slate-600 mt-2 text-sm sm:text-base">Sehen Sie hier den Unterschied vor und nach meinem Einsatz.</p>
+            <div class="w-16 h-1 bg-brand-600 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="flex justify-center gap-2 mb-8 flex-wrap">
+            <button onclick="switchTab('rasen-tab')" id="btn-rasen-tab" class="tab-btn bg-brand-700 text-white px-5 py-2 rounded-xl text-sm font-medium transition-all">Rasenpflege</button>
+            <button onclick="switchTab('hecke-tab')" id="btn-hecke-tab" class="tab-btn bg-sand-100 text-slateDark hover:bg-sand-200 px-5 py-2 rounded-xl text-sm font-medium transition-all">Heckenschnitt</button>
+            <button onclick="switchTab('terrasse-tab')" id="btn-terrasse-tab" class="tab-btn bg-sand-100 text-slateDark hover:bg-sand-200 px-5 py-2 rounded-xl text-sm font-medium transition-all">Grundstücksreinigung</button>
+        </div>
+
+        <div id="rasen-tab" class="tab-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="relative rounded-2xl overflow-hidden shadow-md">
+                <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span></div>
+                <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">VORHER</div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden shadow-md">
+                <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span></div>
+                <div class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">NACHHER</div>
             </div>
         </div>
 
-        <!-- Mobile Navigation Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-sand-200 px-4 pt-2 pb-6 space-y-3">
-            <a href="#start" class="block px-3 py-2 rounded-lg font-medium hover:bg-sand-100">Start</a>
-            <a href="#leistungen" class="block px-3 py-2 rounded-lg font-medium hover:bg-sand-100">Leistungen</a>
-            <a href="#vorteile" class="block px-3 py-2 rounded-lg font-medium hover:bg-sand-100">Warum GGG?</a>
-            <a href="#vorher-nachher" class="block px-3 py-2 rounded-lg font-medium hover:bg-sand-100">Vorher / Nachher</a>
-            <a href="#kalkulator" class="block px-3 py-2 rounded-lg font-semibold text-brand-700 bg-brand-50"><i class="fa-solid fa-calculator mr-1"></i> Preiskalkulator</a>
-            <a href="#ueber-mich" class="block px-3 py-2 rounded-lg font-medium hover:bg-sand-100">Über Mich</a>
-            <a href="#kontakt" class="block px-3 py-2 rounded-lg font-medium hover:bg-sand-100">Kontakt &amp; Anfahrt</a>
-            <div class="pt-2">
-                <a href="#kalkulator" class="w-full bg-brand-700 text-white font-medium py-3 rounded-xl shadow-md text-center block">
-                    Jetzt Angebot anfragen
-                </a>
+        <div id="hecke-tab" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="relative rounded-2xl overflow-hidden shadow-md">
+                <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span></div>
+                <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">VORHER</div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden shadow-md">
+                <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span></div>
+                <div class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">NACHHER</div>
             </div>
         </div>
-    </header>
 
-    <!-- HERO SECTION -->
-    <section id="start" class="hero-gradient text-white py-20 lg:py-28 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 bg-brand-500/20 backdrop-blur-md border border-brand-400/30 text-brand-200 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium mb-6">
-                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-                    Einsatzbereit in Löhne, Bünde, Bad Oeynhausen &amp; Herford
+        <div id="terrasse-tab" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="relative rounded-2xl overflow-hidden shadow-md">
+                <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span></div>
+                <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">VORHER</div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden shadow-md">
+                <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span></div>
+                <div class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">NACHHER</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Über mich -->
+<section id="ueber-mich" class="py-16 lg:py-24 bg-sand-100/70 border-t border-sand-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <div class="w-full h-[450px] bg-sand-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white flex flex-col items-center justify-center text-sand-600 gap-2">
+                    <i class="fa-solid fa-camera text-4xl"></i>
+                    <span class="font-heading font-bold uppercase tracking-wider">Foto folgt in Kürze</span>
+                    <span class="text-xs text-slate-500">Mike Leon Giesbrecht</span>
                 </div>
-                
-                <h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight mb-6">
-                    Ihr zuverlässiger Partner für Garten &amp; Grundstück
-                </h1>
-                
-                <p class="text-base sm:text-xl text-slate-200 font-light mb-8 leading-relaxed">
-                    Rasenpflege, Heckenschnitt, Beetpflege &amp; Objektbetreuung. Sauber, pünktlich und fair – aus der Region für die Region Löhne.
+                <div class="absolute -bottom-6 -right-6 bg-brand-800 text-white p-6 rounded-2xl shadow-xl hidden sm:block max-w-xs border border-brand-600">
+                    <p class="font-heading font-bold text-lg mb-1">Pünktlich &amp; Ehrlich</p>
+                    <p class="text-xs text-brand-200">Ihr Ansprechpartner direkt vor Ort in Löhne und Umgebung.</p>
+                </div>
+            </div>
+
+            <div>
+                <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Der Kopf hinter GGG</span>
+                <h2 class="font-heading text-2xl sm:text-4xl font-bold text-slateDark mt-2 mb-6">Hallo, ich bin Mike Leon Giesbrecht</h2>
+
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    Als Gründer von <strong>GGG – Garten &amp; Grundstücksservice Giesbrecht</strong> stehe ich für solide, ehrliche Dienstleistungen rund um Haus und Garten in meiner Heimatstadt Löhne.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                    <a href="#kalkulator" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-brand-900/40 text-center transition-all flex items-center justify-center gap-2 group">
-                        <span>Jetzt Preis berechnen</span>
-                        <i class="fa-solid fa-calculator group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="https://wa.me/4915750155796?text=Hallo%20Mike,%20ich%20interessiere%20mich%20f%C3%BCr%20einen%20Gartenservice%20in%20L%C3%B6hne." target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-semibold px-8 py-4 rounded-xl text-center transition-all flex items-center justify-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-green-400 text-xl"></i>
-                        <span>WhatsApp Direkt-Chat</span>
-                    </a>
-                </div>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    Ob Rasenmähen, Heckenschnitt, Rindenmulch verteilen oder Dachrinnenreinigung – ich packe verlässlich an und sorge dafür, dass Ihr Grundstück wieder aussieht.
+                </p>
 
-                <!-- Trust Badges Grid -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/10 text-xs sm:text-sm text-slate-300">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-circle-check text-brand-500"></i>
-                        <span>100% Zuverlässig</span>
+                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-sand-300">
+                    <div>
+                        <span class="font-heading font-bold text-xl text-brand-800 block">100%</span>
+                        <span class="text-xs text-slate-500">Transparenz &amp; Ehrlichkeit</span>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-circle-check text-brand-500"></i>
-                        <span>Faire Festpreise</span>
+                    <div>
+                        <span class="font-heading font-bold text-xl text-brand-800 block">Region Löhne</span>
+                        <span class="text-xs text-slate-500">Kurze Anfahrtswege</span>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-circle-check text-brand-500"></i>
-                        <span>Keine MwSt. (§ 19)</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-circle-check text-brand-500"></i>
-                        <span>Gratis Erstbesichtigung</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- WARUM GGG SECTION -->
-    <section id="vorteile" class="py-16 lg:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Ihre Vorteile mit GGG</span>
-                <h2 class="font-heading text-2xl sm:text-4xl font-bold text-slateDark mt-2">Warum sich Kunden in Löhne für GGG entscheiden</h2>
-                <div class="w-16 h-1 bg-brand-600 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Advantage 1 -->
-                <div class="bg-sand-50 p-6 rounded-2xl border border-sand-200 hover:shadow-lg transition-all duration-300">
-                    <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-2xl mb-5">
-                        <i class="fa-solid fa-clock"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-lg mb-2 text-slateDark">Pünktlich &amp; Verlässlich</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Vereinbarte Termine halten wir strikt ein. Sie müssen nicht stundenlang warten – wir kommen pünktlich wie verabredet.
-                    </p>
-                </div>
-
-                <!-- Advantage 2 -->
-                <div class="bg-sand-50 p-6 rounded-2xl border border-sand-200 hover:shadow-lg transition-all duration-300">
-                    <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-2xl mb-5">
-                        <i class="fa-solid fa-hand-holding-hand"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-lg mb-2 text-slateDark">Alles aus einer Hand</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Vom Frühjahrs-Mähen bis zum Laubbeseitigen im Spätherbst und Winterdienst. Wir halten Ihr Anwesen das ganze Jahr gepflegt.
-                    </p>
-                </div>
-
-                <!-- Advantage 3 -->
-                <div class="bg-sand-50 p-6 rounded-2xl border border-sand-200 hover:shadow-lg transition-all duration-300">
-                    <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-2xl mb-5">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-lg mb-2 text-slateDark">Faire &amp; Klare Preise</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Keine versteckten Gebühren. Sie erhalten einen festen Pauschalpreis und sehen vorab, wie er sich zusammensetzt.
-                    </p>
-                </div>
-
-                <!-- Advantage 4 -->
-                <div class="bg-sand-50 p-6 rounded-2xl border border-sand-200 hover:shadow-lg transition-all duration-300">
-                    <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-2xl mb-5">
-                        <i class="fa-solid fa-user-check"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-lg mb-2 text-slateDark">Persönlicher Kontakt</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Mit Mike Leon Giesbrecht haben Sie stets denselben festen Ansprechpartner aus der Region Löhne vor Ort.
-                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- DETAILED SERVICES SECTION -->
-    <section id="leistungen" class="py-16 lg:py-24 bg-sand-100/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Unsere Dienstleistungen</span>
-                <h2 class="font-heading text-2xl sm:text-4xl font-bold text-slateDark mt-2">Umfassender Service für Garten &amp; Haus</h2>
-                <p class="text-slate-600 mt-3 text-sm sm:text-base">Wählen Sie Ihre gewünschte Unterstützung – einzeln oder im praktischen Monatspflege-Abo.</p>
-                <div class="w-16 h-1 bg-brand-600 mx-auto mt-4 rounded-full"></div>
-            </div>
+<!-- Kontaktformular & Vollflächige Erfolgs-Ansicht -->
+<section id="kontakt" class="py-16 lg:py-24 bg-white border-t border-sand-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-1">
+                <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Direktkontakt</span>
+                <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slateDark mt-2 mb-6">Jetzt unverbindlich anfragen</h2>
+                <p class="text-slate-600 text-sm mb-8">
+                    Rufen Sie mich direkt an, schreiben Sie eine WhatsApp-Nachricht oder nutzen Sie das Kontaktformular. Ihre Auswahl aus dem Rechner wurde automatisch übernommen!
+                </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Service Card 1 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 hover:shadow-md transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-scissors"></i>
+                <div class="space-y-6 text-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-sand-50 rounded-xl flex items-center justify-center text-brand-700 shadow-sm border border-sand-200">
+                            <i class="fa-solid fa-phone"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-xl text-slateDark mb-2">Rasenpflege &amp; Vertikutieren</h3>
-                        <ul class="text-slate-600 text-sm space-y-2 mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Rasenmähen &amp; Kanten trimmen</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Vertikutieren &amp; Entmoosen</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Rasendüngung &amp; Nachsaat</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Schnittgutentsorgung</li>
-                        </ul>
-                    </div>
-                    <a href="#kalkulator" onclick="selectServiceInCalc('rasen')" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-sm block">
-                        Anfragen / Berechnen
-                    </a>
-                </div>
-
-                <!-- Service Card 2 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 hover:shadow-md transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-tree font-bold"></i>
+                        <div>
+                            <span class="block text-xs text-slate-400">Telefon / Mobil</span>
+                            <a href="tel:+4915750155796" class="font-bold text-slateDark hover:text-brand-700 transition-colors">+49 (0) 1575 0155796</a>
                         </div>
-                        <h3 class="font-heading font-bold text-xl text-slateDark mb-2">Hecken- &amp; Strauchschnitt</h3>
-                        <ul class="text-slate-600 text-sm space-y-2 mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Form- &amp; Rückschnitt von Hecken</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Sträucher &amp; Gebüsch stutzen</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Fachgerechte Grünabfallentsorgung</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Pflegeleichte Formgebung</li>
-                        </ul>
                     </div>
-                    <a href="#kalkulator" onclick="selectServiceInCalc('hecke')" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-sm block">
-                        Anfragen / Berechnen
-                    </a>
-                </div>
 
-                <!-- Service Card 3 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 hover:shadow-md transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-broom"></i>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-sand-50 rounded-xl flex items-center justify-center text-brand-700 shadow-sm border border-sand-200">
+                            <i class="fa-brands fa-whatsapp text-lg text-green-600"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-xl text-slateDark mb-2">Beet- &amp; Wegausbesserung</h3>
-                        <ul class="text-slate-600 text-sm space-y-2 mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Gründliche Unkrautentfernung</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Beete mulchen &amp; auffrischen</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Terrassen- &amp; Wege-Hochdruckreinigung</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Moos- &amp; Algenentfernung</li>
-                        </ul>
-                    </div>
-                    <a href="#kalkulator" onclick="selectServiceInCalc('beet')" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-sm block">
-                        Anfragen / Berechnen
-                    </a>
-                </div>
-
-                <!-- Service Card 4 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 hover:shadow-md transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-house-chimney-crack"></i>
+                        <div>
+                            <span class="block text-xs text-slate-400">WhatsApp Blitz-Kontakt</span>
+                            <a href="https://wa.me/4915750155796" target="_blank" class="font-bold text-green-700 hover:underline">Nachricht senden</a>
                         </div>
-                        <h3 class="font-heading font-bold text-xl text-slateDark mb-2">Objektbetreuung &amp; Winter</h3>
-                        <ul class="text-slate-600 text-sm space-y-2 mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Laubbeseitigung im Herbst</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Winterdienst &amp; Wege streuen</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Mülltonnen-Service für Senioren</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Urlaubs-Gartenbetreuung</li>
-                        </ul>
                     </div>
-                    <a href="#kalkulator" onclick="selectServiceInCalc('objekt')" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-sm block">
-                        Anfragen / Berechnen
-                    </a>
-                </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- INTERACTIVE PREISKALKULATOR -->
-    <section id="kalkulator" class="py-16 lg:py-24 bg-brand-dark text-white relative">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="bg-brand-500/20 text-brand-300 border border-brand-500/30 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Transparenter Pauschalpreis</span>
-                <h2 class="font-heading text-2xl sm:text-4xl font-bold mt-3">Ihr Pauschalpreis – offen aufgeschlüsselt</h2>
-                <p class="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl mx-auto">Sie bekommen von uns einen festen Pauschalpreis. Hier sehen Sie vorab genau, wie er sich zusammensetzt: Arbeitszeit, Anfahrt und Entsorgung.</p>
-            </div>
-
-            <!-- Pricing basics -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center gap-4">
-                    <div class="w-11 h-11 bg-brand-500/20 text-brand-300 rounded-xl flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-clock"></i></div>
-                    <div>
-                        <p class="font-heading font-bold">35 € pro Stunde</p>
-                        <p class="text-xs text-slate-300">Inkl. Profi-Werkzeug &amp; Maschinen</p>
-                    </div>
-                </div>
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center gap-4">
-                    <div class="w-11 h-11 bg-brand-500/20 text-brand-300 rounded-xl flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-car-side"></i></div>
-                    <div>
-                        <p class="font-heading font-bold">Anfahrt bis 10 km gratis</p>
-                        <p class="text-xs text-slate-300">Darüber gestaffelte Pauschale ab 10 €</p>
-                    </div>
-                </div>
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center gap-4">
-                    <div class="w-11 h-11 bg-brand-500/20 text-brand-300 rounded-xl flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-recycle"></i></div>
-                    <div>
-                        <p class="font-heading font-bold">Entsorgung 25 € / m³</p>
-                        <p class="text-xs text-slate-300">Grünschnitt inkl. Abtransport, mind. 10 €</p>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-sand-50 rounded-xl flex items-center justify-center text-brand-700 shadow-sm border border-sand-200">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-400">E-Mail</span>
+                            <a href="mailto:info@ggg-loehne.de" class="font-bold text-slateDark hover:text-brand-700 transition-colors">info@ggg-loehne.de</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 items-start">
+            <!-- Haupt-Container für Formular und Vollbild-Erfolg -->
+            <div class="lg:col-span-2 bg-sand-50 rounded-3xl p-6 sm:p-12 shadow-xl border border-sand-200 relative overflow-hidden">
 
-                <!-- Inputs -->
-                <div class="lg:col-span-3 bg-white text-slateDark rounded-3xl p-6 sm:p-8 shadow-2xl">
+                <!-- 1. Das eigentliche Formular -->
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Ihr Name *</label>
+                            <input type="text" id="form-name" name="Name" required placeholder="Vor- und Nachname" class="w-full p-3.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-sm bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Telefonnummer / Handy *</label>
+                            <input type="tel" id="form-phone" name="Telefon" required placeholder="Für Rückfragen" class="w-full p-3.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-sm bg-white">
+                        </div>
+                    </div>
 
-                    <label class="block font-heading font-bold text-slateDark mb-3">1. Welche Leistungen benötigen Sie?</label>
-                    <div class="space-y-3 mb-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Ort / Straße *</label>
+                            <input type="text" id="form-location" name="Adresse" required placeholder="z. B. Löhne Gohfeld" class="w-full p-3.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-sm bg-white">
+                        </div>
 
-                        <!-- Rasen -->
-                        <div class="calc-service border rounded-xl overflow-hidden border-brand-500" data-service="rasen">
-                            <label class="flex items-center p-3 cursor-pointer hover:bg-sand-50 transition-colors">
-                                <input type="checkbox" id="calc-rasen" class="calc-trigger w-5 h-5 accent-brand-600 rounded" checked>
-                                <i class="fa-solid fa-scissors text-brand-700 ml-3 w-5 text-center"></i>
-                                <span class="ml-2 font-medium text-sm">Rasenmähen &amp; Kanten</span>
-                            </label>
-                            <div class="calc-options border-t border-sand-200 bg-sand-50 p-4 space-y-3">
-                                <div>
-                                    <div class="flex justify-between items-center mb-1 text-sm">
-                                        <span class="font-medium">Rasenfläche</span>
-                                        <span id="calc-rasen-area-val" class="font-bold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-lg">150 m²</span>
-                                    </div>
-                                    <input type="range" id="calc-rasen-area" min="50" max="1500" step="50" value="150" class="calc-trigger w-full accent-brand-600 cursor-pointer">
-                                </div>
-                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                    <input type="checkbox" id="calc-rasen-disposal" class="calc-trigger w-4 h-4 accent-brand-600" checked>
-                                    Rasenschnitt mitnehmen &amp; entsorgen
+                        <!-- Wunschleistungen als Mehrfachauswahl -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Gewünschte Leistungen *</label>
+                            <div class="bg-white p-3 border border-sand-300 rounded-xl space-y-1.5 max-h-36 overflow-y-auto custom-scrollbar">
+                                <label class="flex items-center text-xs cursor-pointer hover:text-brand-700">
+                                    <input type="checkbox" id="form-chk-rasen" class="form-sync w-4 h-4 accent-brand-600 rounded mr-2" checked> Rasenmähen &amp; Kanten
+                                </label>
+                                <label class="flex items-center text-xs cursor-pointer hover:text-brand-700">
+                                    <input type="checkbox" id="form-chk-vertikutieren" class="form-sync w-4 h-4 accent-brand-600 rounded mr-2"> Vertikutieren &amp; Nachsaat
+                                </label>
+                                <label class="flex items-center text-xs cursor-pointer hover:text-brand-700">
+                                    <input type="checkbox" id="form-chk-hecke" class="form-sync w-4 h-4 accent-brand-600 rounded mr-2"> Hecken- / Strauchschnitt
+                                </label>
+                                <label class="flex items-center text-xs cursor-pointer hover:text-brand-700">
+                                    <input type="checkbox" id="form-chk-mulch" class="form-sync w-4 h-4 accent-brand-600 rounded mr-2"> Rindenmulch verteilen
+                                </label>
+                                <label class="flex items-center text-xs cursor-pointer hover:text-brand-700">
+                                    <input type="checkbox" id="form-chk-dachrinne" class="form-sync w-4 h-4 accent-brand-600 rounded mr-2"> Dachrinnenreinigung
+                                </label>
+                                <label class="flex items-center text-xs cursor-pointer hover:text-brand-700">
+                                    <input type="checkbox" id="form-chk-terrasse" class="form-sync w-4 h-4 accent-brand-600 rounded mr-2"> Terrassenreinigung
                                 </label>
                             </div>
                         </div>
-
-                        <!-- Hecke -->
-                        <div class="calc-service border border-sand-200 rounded-xl overflow-hidden" data-service="hecke">
-                            <label class="flex items-center p-3 cursor-pointer hover:bg-sand-50 transition-colors">
-                                <input type="checkbox" id="calc-hecke" class="calc-trigger w-5 h-5 accent-brand-600 rounded">
-                                <i class="fa-solid fa-tree text-brand-700 ml-3 w-5 text-center"></i>
-                                <span class="ml-2 font-medium text-sm">Hecken- / Strauchschnitt</span>
-                            </label>
-                            <div class="calc-options border-t border-sand-200 bg-sand-50 p-4 space-y-3 hidden">
-                                <div>
-                                    <div class="flex justify-between items-center mb-1 text-sm">
-                                        <span class="font-medium">Heckenlänge</span>
-                                        <span id="calc-hecke-length-val" class="font-bold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-lg">20 m</span>
-                                    </div>
-                                    <input type="range" id="calc-hecke-length" min="5" max="150" step="5" value="20" class="calc-trigger w-full accent-brand-600 cursor-pointer">
-                                </div>
-                                <div>
-                                    <span class="block font-medium text-sm mb-1">Heckenhöhe</span>
-                                    <select id="calc-hecke-height" class="calc-trigger w-full p-2.5 border border-sand-300 rounded-lg text-sm bg-white">
-                                        <option value="low">bis 1,5 m</option>
-                                        <option value="mid" selected>1,5 – 2,5 m</option>
-                                        <option value="high">über 2,5 m (mit Leiter / Gerüst)</option>
-                                    </select>
-                                </div>
-                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                    <input type="checkbox" id="calc-hecke-disposal" class="calc-trigger w-4 h-4 accent-brand-600" checked>
-                                    Heckenschnitt mitnehmen &amp; entsorgen
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Beet -->
-                        <div class="calc-service border border-sand-200 rounded-xl overflow-hidden" data-service="beet">
-                            <label class="flex items-center p-3 cursor-pointer hover:bg-sand-50 transition-colors">
-                                <input type="checkbox" id="calc-beet" class="calc-trigger w-5 h-5 accent-brand-600 rounded">
-                                <i class="fa-solid fa-seedling text-brand-700 ml-3 w-5 text-center"></i>
-                                <span class="ml-2 font-medium text-sm">Unkraut &amp; Beetpflege</span>
-                            </label>
-                            <div class="calc-options border-t border-sand-200 bg-sand-50 p-4 space-y-3 hidden">
-                                <div>
-                                    <div class="flex justify-between items-center mb-1 text-sm">
-                                        <span class="font-medium">Beetfläche</span>
-                                        <span id="calc-beet-area-val" class="font-bold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-lg">20 m²</span>
-                                    </div>
-                                    <input type="range" id="calc-beet-area" min="5" max="200" step="5" value="20" class="calc-trigger w-full accent-brand-600 cursor-pointer">
-                                </div>
-                                <div>
-                                    <span class="block font-medium text-sm mb-1">Zustand der Beete</span>
-                                    <select id="calc-beet-condition" class="calc-trigger w-full p-2.5 border border-sand-300 rounded-lg text-sm bg-white">
-                                        <option value="normal">Regelmäßig gepflegt</option>
-                                        <option value="wild">Stark verwildert</option>
-                                    </select>
-                                </div>
-                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                    <input type="checkbox" id="calc-beet-disposal" class="calc-trigger w-4 h-4 accent-brand-600" checked>
-                                    Unkraut &amp; Pflanzenreste entsorgen
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Reinigung -->
-                        <div class="calc-service border border-sand-200 rounded-xl overflow-hidden" data-service="reinigung">
-                            <label class="flex items-center p-3 cursor-pointer hover:bg-sand-50 transition-colors">
-                                <input type="checkbox" id="calc-reinigung" class="calc-trigger w-5 h-5 accent-brand-600 rounded">
-                                <i class="fa-solid fa-spray-can-sparkles text-brand-700 ml-3 w-5 text-center"></i>
-                                <span class="ml-2 font-medium text-sm">Hochdruck-Terrassenreinigung</span>
-                            </label>
-                            <div class="calc-options border-t border-sand-200 bg-sand-50 p-4 space-y-3 hidden">
-                                <div>
-                                    <div class="flex justify-between items-center mb-1 text-sm">
-                                        <span class="font-medium">Terrassen- / Wegfläche</span>
-                                        <span id="calc-reinigung-area-val" class="font-bold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-lg">30 m²</span>
-                                    </div>
-                                    <input type="range" id="calc-reinigung-area" min="10" max="200" step="5" value="30" class="calc-trigger w-full accent-brand-600 cursor-pointer">
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
-                    <!-- Location Selector -->
-                    <label class="block font-heading font-bold text-slateDark mb-2">2. Einsatzort</label>
-                    <select id="calc-location" class="calc-trigger w-full p-3 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-sm font-medium">
-                        <option value="Löhne" data-km="5">Löhne (inkl. Gohfeld, Obernbeck, Mennighüffen) – bis 10 km</option>
-                        <option value="Bad Oeynhausen" data-km="9">Bad Oeynhausen – ca. 9 km</option>
-                        <option value="Kirchlengern" data-km="11">Kirchlengern – ca. 11 km</option>
-                        <option value="Bünde" data-km="13">Bünde – ca. 13 km</option>
-                        <option value="Herford" data-km="15">Herford – ca. 15 km</option>
-                        <option value="other">Anderer Ort – Entfernung angeben</option>
-                    </select>
-                    <div id="calc-km-wrap" class="hidden mt-3">
-                        <div class="flex justify-between items-center mb-1 text-sm">
-                            <span class="font-medium">Entfernung ab Löhne (einfache Strecke)</span>
-                            <span id="calc-km-val" class="font-bold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-lg">20 km</span>
-                        </div>
-                        <input type="range" id="calc-km" min="0" max="50" step="1" value="20" class="calc-trigger w-full accent-brand-600 cursor-pointer">
-                    </div>
-                    <p class="text-xs text-slate-500 mt-2">Anfahrt: bis 10 km kostenlos · 10–15 km: 10 € · 15–20 km: 15 € · 20–30 km: 20 € · darüber 20 € + 0,60 € je weiterem km.</p>
-                </div>
-
-                <!-- Breakdown -->
-                <div class="lg:col-span-2 bg-white text-slateDark rounded-3xl p-6 sm:p-8 shadow-2xl lg:sticky lg:top-24">
-                    <h3 class="font-heading font-bold text-lg mb-4 flex items-center gap-2"><i class="fa-solid fa-receipt text-brand-700"></i> So setzt sich Ihr Preis zusammen</h3>
-
-                    <div id="calc-breakdown" class="text-sm divide-y divide-sand-200"></div>
-
-                    <div class="border-t-2 border-slateDark/80 mt-3 pt-3 flex justify-between text-sm text-slate-600">
-                        <span>Summe der Positionen</span>
-                        <span id="calc-subtotal" class="font-semibold">0,00 €</span>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Ihre Nachricht / Wünsche</label>
+                        <textarea id="form-message" name="Nachricht" rows="4" placeholder="Beschreiben Sie kurz Ihr Vorhaben..." class="w-full p-3.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-sm bg-white"></textarea>
                     </div>
 
-                    <div class="bg-brand-50 border border-brand-200 rounded-2xl p-5 text-center mt-4">
-                        <span class="text-xs uppercase tracking-wider font-semibold text-brand-800">Ihr Pauschalpreis</span>
-                        <div class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-800 my-1" id="price-result">–</div>
-                        <p class="text-xs text-slate-500">Auf volle 5 € gerundet. Keine MwSt. gem. § 19 UStG.</p>
+                    <button type="submit" id="submit-btn" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-semibold py-4 rounded-xl shadow-md transition-all text-base flex items-center justify-center gap-2">
+                        <span>Anfrage per E-Mail absenden</span>
+                        <i class="fa-solid fa-paper-plane text-sm"></i>
+                    </button>
+                </form>
+
+                <!-- 2. Die vollwertige, großflächige Erfolgs-Ansicht (Ersetzt die Box komplett nach Absenden) -->
+                <div id="success-box" class="hidden text-center py-6 px-2 space-y-6">
+                    <div class="w-24 h-24 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center text-5xl mx-auto shadow-inner border-4 border-white">
+                        <i class="fa-solid fa-circle-check"></i>
                     </div>
 
-                    <p class="text-xs text-slate-500 mt-4 leading-relaxed">Die Zeiten sind Erfahrungswerte. Den verbindlichen Festpreis bekommen Sie nach der kostenlosen Besichtigung vor Ort – ohne Nachforderungen danach.</p>
-
-                    <div class="grid grid-cols-1 gap-3 mt-5">
-                        <button onclick="sendCalcToWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all">
-                            <i class="fa-brands fa-whatsapp text-xl"></i>
-                            <span>Kalkulation via WhatsApp senden</span>
-                        </button>
-                        <a href="#kontakt" onclick="prefillContactForm()" class="w-full bg-brand-800 hover:bg-brand-900 text-white font-semibold py-3.5 px-4 rounded-xl shadow-md text-center block transition-all">
-                            Termin vor Ort anfragen
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- VORHER / NACHHER SHOWCASE -->
-    <section id="vorher-nachher" class="py-16 lg:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Ergebnisse sprechen lassen</span>
-                <h2 class="font-heading text-2xl sm:text-4xl font-bold text-slateDark mt-2">Vorher / Nachher Einblicke</h2>
-                <p class="text-slate-600 mt-2 text-sm sm:text-base">Sehen Sie hier den Unterschied vor und nach unserem Pflege-Einsatz.</p>
-                <div class="w-16 h-1 bg-brand-600 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <!-- Tab Buttons -->
-            <div class="flex justify-center gap-2 mb-8">
-                <button onclick="switchTab('rasen-tab')" id="btn-rasen-tab" class="tab-btn bg-brand-700 text-white px-5 py-2 rounded-xl text-sm font-medium transition-all">Rasenpflege</button>
-                <button onclick="switchTab('hecke-tab')" id="btn-hecke-tab" class="tab-btn bg-sand-100 text-slateDark hover:bg-sand-200 px-5 py-2 rounded-xl text-sm font-medium transition-all">Heckenschnitt</button>
-                <button onclick="switchTab('terrasse-tab')" id="btn-terrasse-tab" class="tab-btn bg-sand-100 text-slateDark hover:bg-sand-200 px-5 py-2 rounded-xl text-sm font-medium transition-all">Terrassenreinigung</button>
-            </div>
-
-            <!-- Showcase Grid Containers -->
-            <div id="rasen-tab" class="tab-content grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="relative rounded-2xl overflow-hidden shadow-md group">
-                    <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span><span class="text-xs text-slate-500">Echte Vorher-/Nachher-Fotos folgen</span></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">VORHER (Ungepflegt / Moos)</div>
-                </div>
-                <div class="relative rounded-2xl overflow-hidden shadow-md group">
-                    <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span><span class="text-xs text-slate-500">Echte Vorher-/Nachher-Fotos folgen</span></div>
-                    <div class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">NACHHER (Gepflegter GGG-Schnitt)</div>
-                </div>
-            </div>
-
-            <div id="hecke-tab" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="relative rounded-2xl overflow-hidden shadow-md group">
-                    <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span><span class="text-xs text-slate-500">Echte Vorher-/Nachher-Fotos folgen</span></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">VORHER (Wildwuchs)</div>
-                </div>
-                <div class="relative rounded-2xl overflow-hidden shadow-md group">
-                    <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span><span class="text-xs text-slate-500">Echte Vorher-/Nachher-Fotos folgen</span></div>
-                    <div class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">NACHHER (Sauberer Formschnitt)</div>
-                </div>
-            </div>
-
-            <div id="terrasse-tab" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="relative rounded-2xl overflow-hidden shadow-md group">
-                    <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span><span class="text-xs text-slate-500">Echte Vorher-/Nachher-Fotos folgen</span></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">VORHER (Algen &amp; Moos belag)</div>
-                </div>
-                <div class="relative rounded-2xl overflow-hidden shadow-md group">
-                    <div class="w-full h-72 bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span><span class="text-xs text-slate-500">Echte Vorher-/Nachher-Fotos folgen</span></div>
-                    <div class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">NACHHER (Mit Hochdruck gereinigt)</div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- EINSATZGEBIET SECTION -->
-    <section class="py-12 bg-sand-200/50 border-y border-sand-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 class="font-heading font-bold text-slateDark text-xl mb-4">Unser regionales Einsatzgebiet</h3>
-            <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-                <span class="bg-white px-4 py-2 rounded-xl text-sm font-semibold border border-sand-300 shadow-sm flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-brand-600"></i> Löhne (Löhne-Ort, Gohfeld, Obernbeck, Mennighüffen)
-                </span>
-                <span class="bg-white px-4 py-2 rounded-xl text-sm font-semibold border border-sand-300 shadow-sm flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-brand-600"></i> Bad Oeynhausen
-                </span>
-                <span class="bg-white px-4 py-2 rounded-xl text-sm font-semibold border border-sand-300 shadow-sm flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-brand-600"></i> Bünde
-                </span>
-                <span class="bg-white px-4 py-2 rounded-xl text-sm font-semibold border border-sand-300 shadow-sm flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-brand-600"></i> Herford
-                </span>
-                <span class="bg-white px-4 py-2 rounded-xl text-sm font-semibold border border-sand-300 shadow-sm flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-brand-600"></i> Kirchlengern
-                </span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ÜBER MICH SECTION -->
-    <section id="ueber-mich" class="py-16 lg:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                
-                <div class="relative">
-                    <div class="w-full h-[450px] bg-sand-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-                        <div class="w-full h-full bg-sand-100 border-2 border-dashed border-sand-500 flex flex-col items-center justify-center text-sand-600 gap-2"><i class="fa-solid fa-camera text-3xl"></i><span class="font-heading font-bold uppercase tracking-wider">Coming soon</span><span class="text-xs text-slate-500">Foto folgt in Kürze</span></div>
-                    </div>
-                    <div class="absolute -bottom-6 -right-6 bg-brand-800 text-white p-6 rounded-2xl shadow-xl hidden sm:block max-w-xs border border-brand-600">
-                        <p class="font-heading font-bold text-lg mb-1">Pünktlich &amp; Persönlich</p>
-                        <p class="text-xs text-brand-200">Ihr direkter Ansprechpartner vor Ort in Löhne und Umgebung.</p>
-                    </div>
-                </div>
-
-                <div>
-                    <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Der Kopf hinter GGG</span>
-                    <h2 class="font-heading text-2xl sm:text-4xl font-bold text-slateDark mt-2 mb-6">Hallo, ich bin Mike Leon Giesbrecht</h2>
-                    
-                    <p class="text-slate-600 leading-relaxed mb-4">
-                        Als Gründer von <strong>GGG – Garten &amp; Grundstücksservice Giesbrecht</strong> stehe ich für ehrliche, anpackende Dienstleistungen rund um Haus und Garten in meiner Heimatregion Löhne.
-                    </p>
-
-                    <p class="text-slate-600 leading-relaxed mb-6">
-                        Ob regelmäßige Rasenpflege für beschäftigte Familien, Unterstützung bei Hecke und Beeten für Senioren oder Verlässlichkeit bei der Objektbetreuung im Winter – ich arbeite gründlich, zügig und stets mit einem offenen Ohr für Ihre Wünsche.
-                    </p>
-
-                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-sand-200">
-                        <div>
-                            <span class="font-heading font-bold text-xl text-brand-800 block">100%</span>
-                            <span class="text-xs text-slate-500">Transparenz &amp; Ehrlichkeit</span>
-                        </div>
-                        <div>
-                            <span class="font-heading font-bold text-xl text-brand-800 block">Region Löhne</span>
-                            <span class="text-xs text-slate-500">Schnelle Vor-Ort-Anfahrt</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT & INQUIRY FORM SECTION -->
-    <section id="kontakt" class="py-16 lg:py-24 bg-sand-100/80 border-t border-sand-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                
-                <!-- Contact Info Column -->
-                <div class="lg:col-span-1">
-                    <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Direktkontakt</span>
-                    <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slateDark mt-2 mb-6">Jetzt unverbindlich anfragen</h2>
-                    <p class="text-slate-600 text-sm mb-8">
-                        Rufen Sie direkt an, schreiben Sie eine WhatsApp-Nachricht oder füllen Sie das Formular aus. Gerne immer via WhatsApp, sonst immer erreichbar!
-                    </p>
-
-                    <div class="space-y-6 text-sm">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-brand-700 shadow-sm border border-sand-200">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-slate-400">Telefon / Mobil (Gerne immer via WhatsApp, sonst immer erreichbar)</span>
-                                <a href="tel:+4915750155796" class="font-bold text-slateDark hover:text-brand-700 transition-colors">+49 (0) 1575 0155796</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-brand-700 shadow-sm border border-sand-200">
-                                <i class="fa-brands fa-whatsapp text-lg text-green-600"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-slate-400">WhatsApp Blitz-Kontakt</span>
-                                <a href="https://wa.me/4915750155796" target="_blank" class="font-bold text-green-700 hover:underline">Nachricht auf WhatsApp senden</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-brand-700 shadow-sm border border-sand-200">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-slate-400">E-Mail</span>
-                                <a href="mailto:info@ggg-loehne.de" class="font-bold text-slateDark hover:text-brand-700 transition-colors">info@ggg-loehne.de</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-brand-700 shadow-sm border border-sand-200">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-slate-400">Standort &amp; Region</span>
-                                <span class="font-bold text-slateDark">32584 Löhne &amp; Umgebung</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Form Column -->
-                <div class="lg:col-span-2 bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-sand-200">
-                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Ihr Name *</label>
-                                <input type="text" required placeholder="Vor- und Nachname" class="w-full p-3.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-sm">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Telefonnummer / Handy *</label>
-                                <input type="tel" required placeholder="Für Rückfragen" class="w-full p-3.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-sm">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Ort / Stadtteil *</label>
-                                <input type="text" id="form-location" required placeholder="z. B. Löhne Gohfeld" class="w-full p-3.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-sm">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Wunschleistung</label>
-                                <select id="form-service" class="w-full p-3.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-sm font-medium">
-                                    <option value="Allgemeine Gartenpflege">Allgemeine Gartenpflege</option>
-                                    <option value="Rasenmähen / Vertikutieren">Rasenmähen / Vertikutieren</option>
-                                    <option value="Heckenschnitt">Heckenschnitt</option>
-                                    <option value="Unkraut &amp; Beetpflege">Unkraut &amp; Beetpflege</option>
-                                    <option value="Terrassenreinigung">Terrassenreinigung</option>
-                                    <option value="Objektbetreuung / Winterdienst">Objektbetreuung / Winterdienst</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Ihre Nachricht oder Notizen</label>
-                            <textarea id="form-message" rows="4" placeholder="Beschreiben Sie kurz Ihr Vorhaben oder Grundstück..." class="w-full p-3.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-sm"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-semibold py-4 rounded-xl shadow-md transition-all text-base flex items-center justify-center gap-2">
-                            <span>Anfrage kostenlos absenden</span>
-                            <i class="fa-solid fa-paper-plane text-sm"></i>
-                        </button>
-
-                        <p class="text-xs text-slate-400 text-center">
-                            Ihre Daten werden vertraulich behandelt und nur zur Kontaktaufnahme genutzt.
+                    <div>
+                        <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Erfolgreich übermittelt</span>
+                        <h3 class="font-heading font-extrabold text-3xl text-slateDark mt-1 mb-2">Vielen Dank für Ihre Anfrage!</h3>
+                        <p class="text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
+                            Ihre Nachricht und die Kalkulationsdaten wurden sicher übertragen. Hier ist die vollständige Übersicht Ihrer Anfrage:
                         </p>
-                    </form>
-                </div>
+                    </div>
 
-            </div>
-        </div>
-    </section>
+                    <!-- Großflächige Zusammenfassungs-Karte -->
+                    <div class="bg-white border border-sand-300 rounded-3xl p-6 sm:p-8 text-left max-w-xl mx-auto shadow-md space-y-4 text-sm">
+                        <div class="flex flex-col sm:flex-row sm:justify-between border-b border-sand-100 pb-3 gap-1">
+                            <span class="text-slate-500 font-medium">Name:</span>
+                            <span id="summary-name" class="font-bold text-slateDark"></span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between border-b border-sand-100 pb-3 gap-1">
+                            <span class="text-slate-500 font-medium">Telefonnummer:</span>
+                            <span id="summary-phone" class="font-bold text-slateDark"></span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between border-b border-sand-100 pb-3 gap-1">
+                            <span class="text-slate-500 font-medium">Einsatzort / Adresse:</span>
+                            <span id="summary-location" class="font-bold text-slateDark"></span>
+                        </div>
+                        <div class="border-b border-sand-100 pb-3">
+                            <span class="text-slate-500 font-medium block mb-1">Gewählte Leistungen:</span>
+                            <span id="summary-services" class="font-bold text-brand-800 block bg-brand-50 p-3 rounded-xl border border-brand-200"></span>
+                        </div>
+                        <div class="border-b border-sand-100 pb-3">
+                            <span class="text-slate-500 font-medium block mb-1">Kalkulierter Richtwert (inkl. Anfahrt &amp; Details):</span>
+                            <span id="summary-price" class="font-heading font-bold text-lg text-brand-800 block bg-brand-50 px-3 py-2 rounded-xl border border-brand-200"></span>
+                        </div>
+                        <div id="summary-msg-box" class="hidden">
+                            <span class="text-slate-500 font-medium block mb-1">Zusätzliche Nachricht:</span>
+                            <p id="summary-message" class="text-slate-600 italic text-xs bg-sand-50 p-3 rounded-xl border border-sand-200"></p>
+                        </div>
+                    </div>
 
-    <!-- FOOTER -->
-    <footer class="bg-brand-dark text-slate-400 py-12 border-t border-brand-900 text-xs sm:text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                
-                <div class="flex items-center gap-3">
-                    <img src="logo.png" alt="Logo" class="w-10 h-10 object-contain rounded-lg bg-white p-0.5">
-                    <div>
-                        <span class="font-heading font-bold text-white block">GGG – Garten &amp; Grundstücksservice Giesbrecht</span>
-                        <span class="text-xs text-slate-400">Inhaber: Mike Leon Giesbrecht | Löhne &amp; Umgebung</span>
+                    <div class="bg-brand-50 border border-brand-200 rounded-2xl p-4 max-w-xl mx-auto text-xs text-brand-900 font-medium">
+                        <i class="fa-solid fa-clock text-brand-600 mr-1"></i> Es wird sich innerhalb der nächsten 24 Stunden telefonisch bei Ihnen gemeldet, um den kostenlosen Besichtigungstermin abzustimmen.
+                    </div>
+
+                    <div class="pt-2">
+                        <button onclick="resetContactForm()" class="bg-brand-700 hover:bg-brand-800 text-white font-semibold py-3.5 px-8 rounded-xl shadow-md transition-all text-sm inline-flex items-center gap-2">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            <span>Weitere Anfrage stellen</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-6 text-xs">
-                    <button onclick="openLegalModal('impressum')" class="hover:text-white transition-colors">Impressum</button>
-                    <button onclick="openLegalModal('datenschutz')" class="hover:text-white transition-colors">Datenschutz</button>
-                    <span class="text-slate-500">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-brand-dark text-slate-400 py-12 border-t border-brand-900 text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="Logo" class="w-10 h-10 object-contain rounded-lg bg-white p-0.5">
+                <div>
+                    <span class="font-heading font-bold text-white block">GGG – Garten &amp; Grundstücksservice Giesbrecht</span>
+                    <span class="text-xs text-slate-400">Inhaber: Mike Leon Giesbrecht | Löhne &amp; Umgebung</span>
                 </div>
-
             </div>
 
-            <div class="mt-8 pt-6 border-t border-white/5 text-center text-xs text-slate-400">
-                © <span id="year">2026</span> GGG – Garten &amp; Grundstücksservice Giesbrecht. Alle Rechte vorbehalten.
-            </div>
-        </div>
-    </footer>
-
-    <!-- FLOATING DIRECT BUTTONS FOR MOBILE -->
-    <div class="fixed bottom-4 right-4 z-50 flex flex-col gap-3">
-        <a href="https://wa.me/4915750155796" target="_blank" class="w-13 h-13 bg-green-500 hover:bg-green-600 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center text-2xl transition-all transform hover:scale-110">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-    </div>
-
-    <!-- LEGAL MODAL (IMPRESSUM / DATENSCHUTZ) -->
-    <div id="legal-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white text-slateDark rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl">
-            <button onclick="closeLegalModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slateDark text-xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div id="legal-modal-content" class="text-sm space-y-4">
-                <!-- Dynamic Content injected via JS -->
+            <div class="flex flex-wrap gap-6 text-xs">
+                <button onclick="openLegalModal('impressum')" class="hover:text-white transition-colors">Impressum</button>
+                <button onclick="openLegalModal('datenschutz')" class="hover:text-white transition-colors">Datenschutz</button>
+                <span class="text-slate-500">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</span>
             </div>
         </div>
+
+        <div class="mt-8 pt-6 border-t border-white/5 text-center text-xs text-slate-400">
+            © <span id="year">2026</span> GGG – Garten &amp; Grundstücksservice Giesbrecht. Alle Rechte vorbehalten.
+        </div>
     </div>
+</footer>
 
-    <!-- JAVASCRIPT INTERACTION LOGIC -->
-    <script>
-        // Set year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+<!-- Floating WhatsApp Button -->
+<div class="fixed bottom-4 right-4 z-40">
+    <a href="https://wa.me/4915750155796" target="_blank" class="w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all transform hover:scale-110">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</div>
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+<!-- Legal Modal -->
+<div id="legal-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white text-slateDark rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl text-sm">
+        <button onclick="closeLegalModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slateDark text-xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div id="legal-modal-content" class="space-y-4"></div>
+    </div>
+</div>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+<!-- JavaScript Logik -->
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const popupOpen = document.getElementById('nav-popup-open');
+    const popupClose = document.getElementById('nav-popup-close');
+    const popupNav = document.getElementById('nav-popup');
+
+    popupOpen.addEventListener('click', () => popupNav.classList.remove('hidden'));
+    popupClose.addEventListener('click', () => popupNav.classList.add('hidden'));
+
+    function closeNavPopup() {
+        popupNav.classList.add('hidden');
+    }
+
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.tab-btn').forEach(b => {
+            b.classList.remove('bg-brand-700', 'text-white');
+            b.classList.add('bg-sand-100', 'text-slateDark');
         });
 
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+        document.getElementById(tabId).classList.remove('hidden');
+        const activeBtn = document.getElementById('btn-' + tabId);
+        activeBtn.classList.remove('bg-sand-100', 'text-slateDark');
+        activeBtn.classList.add('bg-brand-700', 'text-white');
+    }
+
+    // --- SYNCHRONISIERUNG ZWISCHEN RECHNER UND KONTAKTFORMULAR ---
+    const pairs = [
+        { calc: 'chk-rasen', form: 'form-chk-rasen' },
+        { calc: 'chk-vertikutieren', form: 'form-chk-vertikutieren' },
+        { calc: 'chk-hecke', form: 'form-chk-hecke' },
+        { calc: 'chk-mulch', form: 'form-chk-mulch' },
+        { calc: 'chk-dachrinne', form: 'form-chk-dachrinne' },
+        { calc: 'chk-terrasse', form: 'form-chk-terrasse' }
+    ];
+
+    pairs.forEach(pair => {
+        const calcEl = document.getElementById(pair.calc);
+        const formEl = document.getElementById(pair.form);
+
+        calcEl.addEventListener('change', () => {
+            formEl.checked = calcEl.checked;
         });
 
-        // Vorher / Nachher Tab Switcher
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
-            });
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-brand-700', 'text-white');
-                btn.classList.add('bg-sand-100', 'text-slateDark');
-            });
+        formEl.addEventListener('change', () => {
+            calcEl.checked = formEl.checked;
+            calculatePrice();
+        });
+    });
 
-            document.getElementById(tabId).classList.remove('hidden');
-            const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.classList.remove('bg-sand-100', 'text-slateDark');
-            activeBtn.classList.add('bg-brand-700', 'text-white');
+    const addrInput = document.getElementById('calc-address');
+    const formLocation = document.getElementById('form-location');
+
+    addrInput.addEventListener('input', () => {
+        formLocation.value = addrInput.value;
+    });
+
+    // --- AJAX SUBMIT MIT VOLLFLÄCHIGER ERFOLGS-ANSICHT & PREIS-ÜBERTRAGUNG ---
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nameVal = document.getElementById('form-name').value;
+        const phoneVal = document.getElementById('form-phone').value;
+        const locVal = formLocation.value;
+        const msgVal = document.getElementById('form-message').value;
+        const calculatedPriceText = document.getElementById('price-result').textContent;
+
+        const selectedServices = [];
+        if(document.getElementById('form-chk-rasen').checked) selectedServices.push('Rasenmähen & Kanten');
+        if(document.getElementById('form-chk-vertikutieren').checked) selectedServices.push('Vertikutieren & Nachsaat');
+        if(document.getElementById('form-chk-hecke').checked) selectedServices.push('Hecken- / Strauchschnitt');
+        if(document.getElementById('form-chk-mulch').checked) selectedServices.push('Rindenmulch verteilen');
+        if(document.getElementById('form-chk-dachrinne').checked) selectedServices.push('Dachrinnenreinigung');
+        if(document.getElementById('form-chk-terrasse').checked) selectedServices.push('Terrassenreinigung');
+
+        if(selectedServices.length === 0) {
+            alert('Bitte wählen Sie mindestens eine Wunschleistung aus.');
+            return;
         }
 
-        // Price Calculator Logic – Pauschalpreis mit transparenter Aufschlüsselung
-        const HOURLY_RATE = 35;          // € pro Stunde
-        const MIN_HOURS = 1;             // Mindesteinsatz
-        const DISPOSAL_PER_M3 = 25;      // € pro m³ Grünschnitt inkl. Abtransport
-        const DISPOSAL_MIN = 10;         // Mindestbetrag je Entsorgungsposten
-        const CLEANING_DEVICE_FEE = 15;  // Gerätepauschale Hochdruckreiniger
+        const submitBtn = document.getElementById('submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Sende Anfrage...';
 
-        const priceResult = document.getElementById('price-result');
-        const breakdownEl = document.getElementById('calc-breakdown');
-        const subtotalEl = document.getElementById('calc-subtotal');
-        const locationSelect = document.getElementById('calc-location');
-        const kmInput = document.getElementById('calc-km');
-
-        const HEDGE_HEIGHTS = {
-            low:  { label: 'bis 1,5 m',   hoursPerM: 0.05, m3PerM: 0.05 },
-            mid:  { label: '1,5 – 2,5 m', hoursPerM: 0.08, m3PerM: 0.08 },
-            high: { label: 'über 2,5 m',  hoursPerM: 0.14, m3PerM: 0.12 },
+        // Daten für Web3Forms (jetzt inklusive kalkuliertem Preis & Aufschlüsselung)
+        const formData = {
+            access_key: '4584cbaa-159d-4858-b830-deeeadf822ee', // <-- Hier deinen Key einfügen
+            subject: 'Neue Garten-Anfrage über GGG-Website! 🌿',
+            Name: nameVal,
+            Telefon: phoneVal,
+            Adresse: locVal,
+            Leistungen: selectedServices.join(', '),
+            Kalkulierter_Richtpreis: calculatedPriceText,
+            Entfernung_ab_Loehne: computedKm + ' km',
+            Nachricht: msgVal || 'Keine Nachricht angegeben'
         };
 
-        const val = id => document.getElementById(id).value;
-        const isChecked = id => document.getElementById(id).checked;
-        const roundQuarter = h => Math.ceil(h * 4) / 4;
-        const euro = n => n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
-        const num = (n, d = 2) => n.toLocaleString('de-DE', { maximumFractionDigits: d });
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status === 200) {
+                    // Werte in die großflächige Zusammenfassung eintragen
+                    document.getElementById('summary-name').textContent = nameVal;
+                    document.getElementById('summary-phone').textContent = phoneVal;
+                    document.getElementById('summary-location').textContent = locVal;
+                    document.getElementById('summary-services').textContent = selectedServices.join(', ');
+                    document.getElementById('summary-price').textContent = calculatedPriceText + ' (ca. ' + computedKm + ' km ab Löhne)';
 
-        function disposalCost(m3) {
-            return Math.max(DISPOSAL_MIN, m3 * DISPOSAL_PER_M3);
+                    const msgBox = document.getElementById('summary-msg-box');
+                    if(msgVal.trim() !== '') {
+                        document.getElementById('summary-message').textContent = msgVal;
+                        msgBox.classList.remove('hidden');
+                    } else {
+                        msgBox.classList.add('hidden');
+                    }
+
+                    // Formular ausblenden, Erfolgs-Ansicht vollwertig einblenden
+                    document.getElementById('contact-form').classList.add('hidden');
+                    document.getElementById('success-box').classList.remove('hidden');
+                } else {
+                    alert('Fehler beim Senden: ' + json.message);
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<span>Anfrage per E-Mail absenden</span><i class="fa-solid fa-paper-plane text-sm"></i>';
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Es gab ein Verbindungsproblem. Bitte versuchen Sie es direkt über WhatsApp.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Anfrage per E-Mail absenden</span><i class="fa-solid fa-paper-plane text-sm"></i>';
+            });
+    });
+
+    // Formular zurücksetzen für neue Eingabe
+    function resetContactForm() {
+        document.getElementById('contact-form').reset();
+        document.getElementById('form-chk-rasen').checked = true;
+        document.getElementById('success-box').classList.add('hidden');
+        document.getElementById('contact-form').classList.remove('hidden');
+        const submitBtn = document.getElementById('submit-btn');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Anfrage per E-Mail absenden</span><i class="fa-solid fa-paper-plane text-sm"></i>';
+    }
+
+    // --- LIVE AUTOCOMPLETE & ROUTING ---
+    const LOEHNE_COORDS = { lat: 52.1928, lon: 8.7183 };
+    let computedKm = 10;
+
+    const suggestBox = document.getElementById('address-suggestions');
+    const distStatus = document.getElementById('dist-status');
+    let suggestTimeout = null;
+
+    addrInput.addEventListener('input', function() {
+        const query = this.value.trim();
+        if (query.length < 3) {
+            suggestBox.classList.add('hidden');
+            distStatus.innerHTML = '<span class="text-slate-500">📍 Bitte fangen Sie an zu tippen und wählen Sie Ihre Adresse aus der Liste.</span>';
+            computedKm = 10;
+            calculatePrice();
+            return;
         }
 
-        function getDistanceKm() {
-            const opt = locationSelect.options[locationSelect.selectedIndex];
-            return locationSelect.value === 'other' ? parseInt(kmInput.value) : parseInt(opt.dataset.km);
+        clearTimeout(suggestTimeout);
+        suggestTimeout = setTimeout(() => fetchSuggestions(query), 350);
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!addrInput.contains(e.target) && !suggestBox.contains(e.target)) {
+            suggestBox.classList.add('hidden');
         }
+    });
 
-        function travelCost(km) {
-            if (km <= 10) return 0;
-            if (km <= 15) return 10;
-            if (km <= 20) return 15;
-            if (km <= 30) return 20;
-            return 20 + (km - 30) * 0.6;
-        }
+    async function fetchSuggestions(query) {
+        try {
+            const res = await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&lat=${LOEHNE_COORDS.lat}&lon=${LOEHNE_COORDS.lon}&limit=5&lang=de`);
+            const data = await res.json();
 
-        function getServiceGroups() {
-            const groups = [];
+            suggestBox.innerHTML = '';
 
-            if (isChecked('calc-rasen')) {
-                const area = parseInt(val('calc-rasen-area'));
-                const g = { title: 'Rasenmähen & Kanten', detail: `${area} m²`, hours: roundQuarter(area / 300), items: [] };
-                if (isChecked('calc-rasen-disposal')) {
-                    const m3 = area * 0.0015;
-                    g.items.push({ label: `Entsorgung Rasenschnitt (ca. ${num(m3, 1)} m³)`, amount: disposalCost(m3) });
-                }
-                groups.push(g);
-            }
+            if (data.features && data.features.length > 0) {
+                data.features.forEach(f => {
+                    const p = f.properties;
+                    let streetPart = [];
+                    if (p.street) streetPart.push(p.street);
+                    else if (p.name && !p.name.match(/\d{5}/)) streetPart.push(p.name);
+                    if (p.housenumber) streetPart.push(p.housenumber);
 
-            if (isChecked('calc-hecke')) {
-                const length = parseInt(val('calc-hecke-length'));
-                const height = HEDGE_HEIGHTS[val('calc-hecke-height')];
-                const g = { title: 'Hecken- / Strauchschnitt', detail: `${length} m, Höhe ${height.label}`, hours: roundQuarter(length * height.hoursPerM), items: [] };
-                if (isChecked('calc-hecke-disposal')) {
-                    const m3 = length * height.m3PerM;
-                    g.items.push({ label: `Entsorgung Heckenschnitt (ca. ${num(m3, 1)} m³)`, amount: disposalCost(m3) });
-                }
-                groups.push(g);
-            }
+                    let cityPart = [];
+                    if (p.postcode) cityPart.push(p.postcode);
+                    if (p.city) cityPart.push(p.city);
+                    else if (p.town) cityPart.push(p.town);
+                    else if (p.village) cityPart.push(p.village);
 
-            if (isChecked('calc-beet')) {
-                const area = parseInt(val('calc-beet-area'));
-                const wild = val('calc-beet-condition') === 'wild';
-                const factor = wild ? 1.8 : 1;
-                const g = { title: 'Unkraut & Beetpflege', detail: `${area} m², ${wild ? 'stark verwildert' : 'gepflegt'}`, hours: roundQuarter(area / 12 * factor), items: [] };
-                if (isChecked('calc-beet-disposal')) {
-                    const m3 = area * 0.02 * factor;
-                    g.items.push({ label: `Entsorgung Pflanzenreste (ca. ${num(m3, 1)} m³)`, amount: disposalCost(m3) });
-                }
-                groups.push(g);
-            }
+                    let displayName = "";
+                    if (streetPart.length > 0) displayName += streetPart.join(' ');
+                    if (cityPart.length > 0) displayName += (displayName ? ', ' : '') + cityPart.join(' ');
+                    if (!displayName) displayName = p.name || 'Unbekannter Ort';
 
-            if (isChecked('calc-reinigung')) {
-                const area = parseInt(val('calc-reinigung-area'));
-                groups.push({
-                    title: 'Hochdruck-Terrassenreinigung', detail: `${area} m²`, hours: roundQuarter(area / 15),
-                    items: [{ label: 'Gerätepauschale Hochdruckreiniger', amount: CLEANING_DEVICE_FEE }]
+                    const li = document.createElement('li');
+                    li.className = 'px-4 py-3 hover:bg-brand-50 cursor-pointer text-sm border-b border-sand-100 last:border-0 text-slateDark flex items-center gap-3 transition-colors';
+                    li.innerHTML = `<i class="fa-solid fa-map-pin text-brand-500"></i><span class="font-medium">${displayName}</span>`;
+
+                    li.onclick = () => selectAddressAndCalculateRoute(displayName, f.geometry.coordinates[0], f.geometry.coordinates[1]);
+                    suggestBox.appendChild(li);
                 });
+                suggestBox.classList.remove('hidden');
+            } else {
+                suggestBox.classList.add('hidden');
             }
-
-            return groups;
+        } catch (e) {
+            console.log("Fehler bei der Adresssuche:", e);
         }
+    }
 
-        let lastCalc = null;
+    async function selectAddressAndCalculateRoute(displayName, lon, lat) {
+        addrInput.value = displayName;
+        formLocation.value = displayName;
+        suggestBox.classList.add('hidden');
 
-        function calculatePrice() {
-            document.getElementById('calc-rasen-area-val').textContent = val('calc-rasen-area') + ' m²';
-            document.getElementById('calc-hecke-length-val').textContent = val('calc-hecke-length') + ' m';
-            document.getElementById('calc-beet-area-val').textContent = val('calc-beet-area') + ' m²';
-            document.getElementById('calc-reinigung-area-val').textContent = val('calc-reinigung-area') + ' m²';
-            document.getElementById('calc-km-val').textContent = kmInput.value + ' km';
-            document.getElementById('calc-km-wrap').classList.toggle('hidden', locationSelect.value !== 'other');
-            document.querySelectorAll('.calc-service').forEach(el => {
-                const active = isChecked('calc-' + el.dataset.service);
-                el.querySelector('.calc-options').classList.toggle('hidden', !active);
-                el.classList.toggle('border-brand-500', active);
-                el.classList.toggle('border-sand-200', !active);
-            });
+        distStatus.innerHTML = '<span class="text-brand-700 font-medium flex items-center gap-1.5"><i class="fa-solid fa-spinner animate-spin"></i> Fahrstrecke ab Löhne wird exakt berechnet...</span>';
 
-            const groups = getServiceGroups();
-            if (groups.length === 0) {
-                breakdownEl.innerHTML = '<p class="py-3 text-slate-500">Bitte wählen Sie mindestens eine Leistung aus.</p>';
-                subtotalEl.textContent = euro(0);
-                priceResult.textContent = '–';
-                lastCalc = null;
-                return;
+        try {
+            const routeRes = await fetch(`https://router.project-osrm.org/route/v1/driving/${LOEHNE_COORDS.lon},${LOEHNE_COORDS.lat};${lon},${lat}?overview=false`);
+            const routeData = await routeRes.json();
+
+            if (routeData.routes && routeData.routes.length > 0) {
+                computedKm = Math.max(1, Math.round(routeData.routes[0].distance / 1000));
+
+                if (computedKm > 90) {
+                    distStatus.innerHTML = `<span class="text-amber-700 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation text-base"></i> Über 90km? Bitte manuell anfragen.</span>`;
+                    computedKm = 10;
+                } else if (computedKm <= 10) {
+                    distStatus.innerHTML = `<span class="text-green-700 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-base"></i> Strecke: exakt ${computedKm} km ab Löhne &rarr; <strong>Anfahrt KOSTENFREI</strong></span>`;
+                } else {
+                    const extraKm = computedKm - 10;
+                    const travelCost = (extraKm * 0.60).toFixed(2).replace('.', ',');
+                    distStatus.innerHTML = `<span class="text-brand-900 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-road text-brand-600"></i> Strecke: ${computedKm} km ab Löhne &rarr; <strong>Anfahrt: +${travelCost} €</strong> (${extraKm} km Mehrstrecke)</span>`;
+                }
+                calculatePrice();
             }
-
-            const rows = [];
-            let subtotal = 0;
-            let totalHours = 0;
-
-            groups.forEach(g => {
-                const labor = g.hours * HOURLY_RATE;
-                totalHours += g.hours;
-                subtotal += labor;
-                let html = `<div class="py-3"><div class="flex justify-between font-semibold"><span>${g.title}</span></div>
-                    <p class="text-xs text-slate-500 mb-1">${g.detail}</p>
-                    <div class="flex justify-between text-slate-600"><span>Arbeitszeit ca. ${num(g.hours)} Std. × ${HOURLY_RATE} €</span><span>${euro(labor)}</span></div>`;
-                g.items.forEach(item => {
-                    subtotal += item.amount;
-                    html += `<div class="flex justify-between text-slate-600"><span>${item.label}</span><span>${euro(item.amount)}</span></div>`;
-                });
-                rows.push(html + '</div>');
-            });
-
-            let minSurcharge = 0;
-            if (totalHours < MIN_HOURS) {
-                minSurcharge = (MIN_HOURS - totalHours) * HOURLY_RATE;
-                subtotal += minSurcharge;
-                rows.push(`<div class="py-3 flex justify-between text-slate-600"><span>Ausgleich Mindesteinsatz (${MIN_HOURS} Std.)</span><span>${euro(minSurcharge)}</span></div>`);
-            }
-
-            const km = getDistanceKm();
-            const travel = travelCost(km);
-            subtotal += travel;
-            const travelLabel = locationSelect.value === 'other' ? `ca. ${km} km` : (km <= 10 ? 'bis 10 km' : `ca. ${km} km`);
-            rows.push(`<div class="py-3 flex justify-between text-slate-600"><span>Anfahrt (${travelLabel})</span><span class="${travel === 0 ? 'text-brand-700 font-semibold' : ''}">${travel === 0 ? 'kostenlos' : euro(travel)}</span></div>`);
-
-            const flatPrice = Math.ceil(subtotal / 5) * 5;
-
-            breakdownEl.innerHTML = rows.join('');
-            subtotalEl.textContent = euro(subtotal);
-            priceResult.textContent = `ca. ${flatPrice} €`;
-
-            lastCalc = { groups, minSurcharge, travel, km, subtotal, flatPrice };
-        }
-
-        document.querySelectorAll('.calc-trigger').forEach(trigger => {
-            trigger.addEventListener('input', calculatePrice);
-            trigger.addEventListener('change', calculatePrice);
-        });
-
-        calculatePrice();
-
-        function getLocationText() {
-            return locationSelect.value === 'other' ? `Anderer Ort (ca. ${kmInput.value} km)` : locationSelect.value;
-        }
-
-        function sendCalcToWhatsApp() {
-            if (!lastCalc) {
-                alert('Bitte wählen Sie mindestens eine Leistung aus.');
-                return;
-            }
-            const lines = lastCalc.groups.map(g => {
-                let line = `- ${g.title} (${g.detail}): ca. ${num(g.hours)} Std. = ${euro(g.hours * HOURLY_RATE)}`;
-                g.items.forEach(item => { line += `\n   + ${item.label}: ${euro(item.amount)}`; });
-                return line;
-            });
-            if (lastCalc.minSurcharge > 0) lines.push(`- Ausgleich Mindesteinsatz: ${euro(lastCalc.minSurcharge)}`);
-            lines.push(`- Anfahrt: ${lastCalc.travel === 0 ? 'kostenlos' : euro(lastCalc.travel)}`);
-
-            const text = `Hallo Mike! Ich habe mir auf deiner Website einen Preis berechnet:\n\nOrt: ${getLocationText()}\n${lines.join('\n')}\n\nPauschalpreis: ca. ${lastCalc.flatPrice} €\n\nKönnen wir einen kostenlosen Besichtigungstermin vereinbaren?`;
-
-            window.open(`https://wa.me/4915750155796?text=${encodeURIComponent(text)}`, '_blank');
-        }
-
-        function selectServiceInCalc(serviceType) {
-            document.getElementById('calc-rasen').checked = (serviceType === 'rasen');
-            document.getElementById('calc-hecke').checked = (serviceType === 'hecke');
-            document.getElementById('calc-beet').checked = (serviceType === 'beet');
-            document.getElementById('calc-reinigung').checked = (serviceType === 'reinigung');
+        } catch (err) {
+            console.log('Routing Fehler', err);
+            distStatus.innerHTML = `<span class="text-amber-700 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation text-base"></i> Route konnte nicht ermittelt werden. Standard-Anfahrt angewandt.</span>`;
+            computedKm = 10;
             calculatePrice();
         }
+    }
 
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            alert('Vielen Dank für Ihre Anfrage! Mike Giesbrecht wird sich innerhalb von 24 Stunden bei Ihnen melden.');
-            document.getElementById('contact-form').reset();
+    // --- PREISBERECHNUNG ---
+    const isChecked = id => document.getElementById(id).checked;
+
+    function calculatePrice() {
+        const hasRasen = isChecked('chk-rasen');
+        const hasVertikutieren = isChecked('chk-vertikutieren');
+        const hasHecke = isChecked('chk-hecke');
+        const hasMulch = isChecked('chk-mulch');
+        const hasDachrinne = isChecked('chk-dachrinne');
+        const hasTerrasse = isChecked('chk-terrasse');
+
+        const needsGreenWaste = hasRasen || hasVertikutieren || hasHecke;
+        const haengerBox = document.getElementById('haenger-box');
+
+        if (needsGreenWaste) {
+            haengerBox.classList.remove('hidden');
+        } else {
+            haengerBox.classList.add('hidden');
         }
 
-        function prefillContactForm() {
-            document.getElementById('form-location').value = locationSelect.value === 'other' ? '' : locationSelect.value;
+        let taskCount = 0;
+        if (hasRasen) taskCount++;
+        if (hasVertikutieren) taskCount++;
+        if (hasHecke) taskCount++;
+        if (hasMulch) taskCount++;
+        if (hasDachrinne) taskCount++;
+        if (hasTerrasse) taskCount++;
+
+        if (taskCount === 0) {
+            document.getElementById('price-result').textContent = '–';
+            return;
         }
 
-        function openLegalModal(type) {
-            const modal = document.getElementById('legal-modal');
-            const modalContent = document.getElementById('legal-modal-content');
-            
-            if (type === 'impressum') {
-                modalContent.innerHTML = `
-                    <h3 class="font-heading font-bold text-xl text-slateDark mb-2">Impressum</h3>
-                    <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-                    <p>GGG – Garten & Grundstücksservice Giesbrecht<br>
+        const aufwand = document.getElementById('sel-aufwand').value;
+        let haengerFee = needsGreenWaste ? parseInt(document.getElementById('sel-haenger').value) : 0;
+
+        let baseHours = 1.0;
+        if (aufwand === 'standard') baseHours = 1.6;
+        if (aufwand === 'umfangreich') baseHours = 2.8;
+
+        let timeEstimate = baseHours + ((taskCount - 1) * 0.5);
+
+        let travelCost = 0;
+        if (computedKm > 10) {
+            travelCost = (computedKm - 10) * 0.60;
+        }
+
+        let subtotal = (timeEstimate * 30) + haengerFee + travelCost;
+        const flatPrice = Math.ceil(subtotal / 5) * 5;
+
+        document.getElementById('price-result').textContent = `ab ca. ${flatPrice} €`;
+    }
+
+    document.querySelectorAll('.calc-trigger').forEach(el => {
+        el.addEventListener('change', calculatePrice);
+    });
+
+    calculatePrice();
+
+    function sendCalcToWhatsApp() {
+        const tasks = [];
+        if(isChecked('chk-rasen')) tasks.push('Rasenmähen');
+        if(isChecked('chk-vertikutieren')) tasks.push('Vertikutieren');
+        if(isChecked('chk-hecke')) tasks.push('Heckenschnitt');
+        if(isChecked('chk-mulch')) tasks.push('Rindenmulch');
+        if(isChecked('chk-dachrinne')) tasks.push('Dachrinnenreinigung');
+        if(isChecked('chk-terrasse')) tasks.push('Terrassenreinigung');
+
+        if(tasks.length === 0) {
+            alert('Bitte wählen Sie mindestens eine Aufgabe aus.');
+            return;
+        }
+
+        const address = document.getElementById('calc-address').value || 'Nicht ausgewählt';
+        const price = document.getElementById('price-result').textContent;
+
+        const text = `Hallo Mike! Ich habe mir auf deiner Website einen Richtpreis ausgerechnet:\n\nArbeiten: ${tasks.join(', ')}\nAdresse: ${address} (ca. ${computedKm} km ab Löhne)\nRichtpreis: ${price}\n\nKönnen wir einen kostenlosen Besichtigungstermin vereinbaren?`;
+
+        window.open(`https://wa.me/4915750155796?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function openLegalModal(type) {
+        const modal = document.getElementById('legal-modal');
+        const content = document.getElementById('legal-modal-content');
+
+        if (type === 'impressum') {
+            content.innerHTML = `
+                    <h3 class="font-heading font-bold text-xl text-slateDark">Impressum</h3>
+                    <p><strong>GGG – Garten & Grundstücksservice Giesbrecht</strong><br>
                     Inhaber: Mike Leon Giesbrecht<br>
-                    Musterstraße 123<br>
                     32584 Löhne</p>
                     <p><strong>Kontakt:</strong><br>
                     Telefon: +49 (0) 1575 0155796<br>
@@ -1055,19 +1101,18 @@
                     <p><strong>Umsatzsteuer:</strong><br>
                     Als Kleinunternehmer im Sinne von § 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.</p>
                 `;
-            } else if (type === 'datenschutz') {
-                modalContent.innerHTML = `
-                    <h3 class="font-heading font-bold text-xl text-slateDark mb-2">Datenschutzerklärung</h3>
-                    <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Personenbezogene Daten (z. B. Name, Telefonnummer, E-Mail), die Sie uns über das Kontaktformular oder per WhatsApp übermitteln, werden vertraulich und ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
-                    <p>Eine Weitergabe Ihrer Daten an Dritte erfolgt nicht. Sie haben jederzeit das Recht auf kostenlose Auskunft über Ihre gespeicherten Daten sowie das Recht auf Löschung.</p>
+        } else {
+            content.innerHTML = `
+                    <h3 class="font-heading font-bold text-xl text-slateDark">Datenschutzerklärung</h3>
+                    <p>Ihre übermittelten Daten werden vertraulich und ausschließlich zur Kontaktaufnahme verwendet.</p>
                 `;
-            }
-            modal.classList.remove('hidden');
         }
+        modal.classList.remove('hidden');
+    }
 
-        function closeLegalModal() {
-            document.getElementById('legal-modal').classList.add('hidden');
-        }
-    </script>
+    function closeLegalModal() {
+        document.getElementById('legal-modal').classList.add('hidden');
+    }
+</script>
 </body>
 </html>
