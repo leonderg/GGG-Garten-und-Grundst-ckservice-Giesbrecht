@@ -500,7 +500,7 @@
     </div>
 </section>
 
-<!-- Über mich -->
+<!-- Über mich (Mit prominentem Logo) -->
 <section id="ueber-mich" class="py-16 lg:py-24 bg-sand-100/70 border-t border-sand-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -517,7 +517,12 @@
             </div>
 
             <div>
-                <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Der Kopf hinter GGG</span>
+                <!-- Logo hier integriert -->
+                <div class="flex items-center gap-3 mb-3">
+                    <img src="logo.png" alt="GGG Logo" class="h-10 w-auto object-contain bg-white rounded-lg p-1 shadow-sm border border-sand-200">
+                    <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Der Kopf hinter GGG</span>
+                </div>
+
                 <h2 class="font-heading text-2xl sm:text-4xl font-bold text-slateDark mt-2 mb-6">Hallo, ich bin Mike Leon Giesbrecht</h2>
 
                 <p class="text-slate-600 leading-relaxed mb-4">
@@ -525,7 +530,7 @@
                 </p>
 
                 <p class="text-slate-600 leading-relaxed mb-6">
-                    Ob Rasenmähen, Heckenschnitt, Rindenmulch verteilen oder Dachrinnenreinigung – ich packe verlässlich an und sorge dafür, dass Ihr Grundstück wieder aussieht.
+                    Ob Rasenmähen, Heckenschnitt, Rindenmulch verteilen oder Dachrinnenreinigung – ich packe verlässlich an und sorge dafür, dass Ihr Grundstück wieder sauber aussieht.
                 </p>
 
                 <div class="grid grid-cols-2 gap-4 pt-4 border-t border-sand-300">
@@ -543,11 +548,16 @@
     </div>
 </section>
 
-<!-- Kontaktformular & Vollflächige Erfolgs-Ansicht -->
+<!-- Kontaktformular & Vollflächige Erfolgs-Ansicht (Mit Logo im linken Bereich) -->
 <section id="kontakt" class="py-16 lg:py-24 bg-white border-t border-sand-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div class="lg:col-span-1">
+                <!-- Logo als Visitenkarten-Kopf -->
+                <div class="mb-6">
+                    <img src="logo.png" alt="GGG Logo" class="h-16 w-auto object-contain bg-sand-50 p-2 rounded-2xl border border-sand-200 shadow-sm">
+                </div>
+
                 <span class="text-brand-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">Direktkontakt</span>
                 <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slateDark mt-2 mb-6">Jetzt unverbindlich anfragen</h2>
                 <p class="text-slate-600 text-sm mb-8">
@@ -646,7 +656,7 @@
                     </button>
                 </form>
 
-                <!-- 2. Die vollwertige, großflächige Erfolgs-Ansicht (Ersetzt die Box komplett nach Absenden) -->
+                <!-- 2. Die vollwertige, großflächige Erfolgs-Ansicht -->
                 <div id="success-box" class="hidden text-center py-6 px-2 space-y-6">
                     <div class="w-24 h-24 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center text-5xl mx-auto shadow-inner border-4 border-white">
                         <i class="fa-solid fa-circle-check"></i>
@@ -656,7 +666,7 @@
                         <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Erfolgreich übermittelt</span>
                         <h3 class="font-heading font-extrabold text-3xl text-slateDark mt-1 mb-2">Vielen Dank für Ihre Anfrage!</h3>
                         <p class="text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
-                            Ihre Nachricht und die Kalkulationsdaten wurden sicher übertragen. Hier ist die vollständige Übersicht Ihrer Anfrage:
+                            Ihre Nachricht und die Kalkulationsdaten wurden sicher an Uns übertragen. Hier ist die vollständige Übersicht Ihrer Anfrage:
                         </p>
                     </div>
 
@@ -833,7 +843,6 @@
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Sende Anfrage...';
 
-        // Daten für Web3Forms (jetzt inklusive kalkuliertem Preis & Aufschlüsselung)
         const formData = {
             access_key: '4584cbaa-159d-4858-b830-deeeadf822ee', // <-- Hier deinen Key einfügen
             subject: 'Neue Garten-Anfrage über GGG-Website! 🌿',
@@ -857,7 +866,6 @@
             .then(async (response) => {
                 let json = await response.json();
                 if (response.status === 200) {
-                    // Werte in die großflächige Zusammenfassung eintragen
                     document.getElementById('summary-name').textContent = nameVal;
                     document.getElementById('summary-phone').textContent = phoneVal;
                     document.getElementById('summary-location').textContent = locVal;
@@ -872,7 +880,6 @@
                         msgBox.classList.add('hidden');
                     }
 
-                    // Formular ausblenden, Erfolgs-Ansicht vollwertig einblenden
                     document.getElementById('contact-form').classList.add('hidden');
                     document.getElementById('success-box').classList.remove('hidden');
                 } else {
@@ -889,7 +896,6 @@
             });
     });
 
-    // Formular zurücksetzen für neue Eingabe
     function resetContactForm() {
         document.getElementById('contact-form').reset();
         document.getElementById('form-chk-rasen').checked = true;
