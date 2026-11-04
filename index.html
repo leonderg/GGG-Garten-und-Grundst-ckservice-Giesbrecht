@@ -199,17 +199,19 @@
         </div>
     </section>
 
-    <!-- Vorteile (Kompakte Kacheln) -->
+    <!-- Vorteile (Kompakte Kacheln mit Slider auf Mobilgeräten) -->
     <section id="vorteile" class="py-6 sm:py-10 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-5 sm:mb-8">
                 <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Der GGG-Service</span>
                 <h2 class="font-heading text-lg sm:text-2xl font-bold text-slateDark mt-1">Entlastung für Sie &amp; Ihr Objekt</h2>
                 <div class="w-10 h-1 bg-brand-600 mx-auto mt-2 rounded-full"></div>
+                <p class="text-[11px] text-slate-400 mt-1 block sm:hidden"><i class="fa-solid fa-arrow-right-arrow-left mr-1"></i> Wischen für mehr</p>
             </div>
 
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                <div class="bg-sand-50 p-3.5 sm:p-4 rounded-xl border border-sand-200">
+            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 overflow-x-auto sm:overflow-visible no-scrollbar pb-3 sm:pb-0 px-1 snap-x snap-mandatory">
+                
+                <div class="bg-sand-50 p-3.5 sm:p-4 rounded-xl border border-sand-200 min-w-[240px] sm:min-w-0 snap-start shrink-0">
                     <div class="w-8 h-8 bg-brand-100 text-brand-700 rounded-lg flex items-center justify-center text-sm mb-2">
                         <i class="fa-solid fa-briefcase"></i>
                     </div>
@@ -217,7 +219,7 @@
                     <p class="text-slate-600 text-[11px] leading-relaxed">Grundstück in Schuss trotz vollem Job.</p>
                 </div>
 
-                <div class="bg-sand-50 p-3.5 sm:p-4 rounded-xl border border-sand-200">
+                <div class="bg-sand-50 p-3.5 sm:p-4 rounded-xl border border-sand-200 min-w-[240px] sm:min-w-0 snap-start shrink-0">
                     <div class="w-8 h-8 bg-brand-100 text-brand-700 rounded-lg flex items-center justify-center text-sm mb-2">
                         <i class="fa-solid fa-building-user"></i>
                     </div>
@@ -225,7 +227,7 @@
                     <p class="text-slate-600 text-[11px] leading-relaxed">Nicht vor Ort? Ich kümmere mich darum.</p>
                 </div>
 
-                <div class="bg-sand-50 p-3.5 sm:p-4 rounded-xl border border-sand-200">
+                <div class="bg-sand-50 p-3.5 sm:p-4 rounded-xl border border-sand-200 min-w-[240px] sm:min-w-0 snap-start shrink-0">
                     <div class="w-8 h-8 bg-brand-100 text-brand-700 rounded-lg flex items-center justify-center text-sm mb-2">
                         <i class="fa-solid fa-hands-holding-child"></i>
                     </div>
@@ -233,29 +235,31 @@
                     <p class="text-slate-600 text-[11px] leading-relaxed">Unterstützung für Senioren &amp; im Haushalt.</p>
                 </div>
 
-                <div class="bg-sand-50 p-3.5 sm:p-4 rounded-xl border border-sand-200">
+                <div class="bg-sand-50 p-3.5 sm:p-4 rounded-xl border border-sand-200 min-w-[240px] sm:min-w-0 snap-start shrink-0">
                     <div class="w-8 h-8 bg-brand-100 text-brand-700 rounded-lg flex items-center justify-center text-sm mb-2">
                         <i class="fa-solid fa-toolbox"></i>
                     </div>
                     <h3 class="font-heading font-bold text-xs sm:text-sm text-slateDark mb-1">Alles aus einer Hand</h3>
                     <p class="text-slate-600 text-[11px] leading-relaxed">Vom Möbelaufbau bis zur Gartenpflege.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Leistungsübersicht -->
+    <!-- Leistungsübersicht (Wieder mit mobilem Slider / horizontalem Scrollen) -->
     <section id="leistungen" class="py-8 sm:py-14 bg-sand-100/60 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
                 <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Leistungsübersicht</span>
                 <h2 class="font-heading text-lg sm:text-2xl font-bold text-slateDark mt-1">Was wir für Sie tun können</h2>
                 <div class="w-10 h-1 bg-brand-600 mx-auto mt-2 rounded-full"></div>
+                <p class="text-[11px] text-slate-400 mt-1 block sm:hidden"><i class="fa-solid fa-arrow-right-arrow-left mr-1"></i> Wischen Sie durch die Leistungen</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto sm:overflow-visible no-scrollbar pb-3 sm:pb-0 px-1 snap-x snap-mandatory">
                 
-                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[270px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-seedling"></i>
@@ -270,7 +274,7 @@
                     <button onclick="selectServiceAndScroll('Rasenpflege')" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs cursor-pointer">Angebot anfragen</button>
                 </div>
 
-                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[270px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-tree"></i>
@@ -285,7 +289,7 @@
                     <button onclick="selectServiceAndScroll('Heckenschnitt')" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs cursor-pointer">Angebot anfragen</button>
                 </div>
 
-                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[270px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-couch"></i>
@@ -300,7 +304,7 @@
                     <button onclick="selectServiceAndScroll('Möbelaufbau & Montage')" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs cursor-pointer">Angebot anfragen</button>
                 </div>
 
-                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[270px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-trash-can"></i>
@@ -315,7 +319,7 @@
                     <button onclick="selectServiceAndScroll('Mülltonnen-Service')" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs cursor-pointer">Angebot anfragen</button>
                 </div>
 
-                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[270px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-lightbulb"></i>
@@ -330,7 +334,7 @@
                     <button onclick="selectServiceAndScroll('Lampen tauschen & Handgriffe')" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs cursor-pointer">Angebot anfragen</button>
                 </div>
 
-                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[270px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-house-chimney-window"></i>
@@ -349,7 +353,7 @@
         </div>
     </section>
 
-    <!-- Preis-Orientierung / Kalkulator (Jetzt mit mehreren Auswahlmöglichkeiten via Checkboxen) -->
+    <!-- Preis-Orientierung / Kalkulator -->
     <section id="kalkulator" class="py-8 sm:py-14 bg-brand-dark text-white relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-6">
@@ -778,7 +782,7 @@
             checkboxes.forEach(cb => {
                 total += parseInt(cb.getAttribute('data-price')) || 0;
             });
-            if(total === 0) total = 30; // Mindestaufwand
+            if(total === 0) total = 30;
             document.getElementById('price-result').textContent = `ab ca. ${total},00 €`;
         }
         updateTotalPrice();
@@ -887,7 +891,7 @@
                     <p><strong>Angaben gemäß § 5 TMG:</strong><br>
                     GGG – Garten &amp; Grundstücksservice Giesbrecht<br>
                     Mike Leon Giesbrecht<br>
-                    [Deine Straße &amp; Hausnummer]<br>
+                    Lilienweg &amp; 8<br>
                     32584 Löhne</p>
                     <p><strong>Kontakt:</strong><br>
                     Telefon: +49 (0) 1575 0155796<br>
