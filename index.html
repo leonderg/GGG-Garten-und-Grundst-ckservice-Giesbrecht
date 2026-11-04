@@ -56,12 +56,6 @@
             background-size: cover;
             background-position: center;
         }
-        /* Feiner CSS-Trick zur perfekten Rand-Einbettung des Logos ohne harte Kanten */
-        .blended-logo {
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
-            mask-image: radial-gradient(circle at center, black 75%, transparent 100%);
-            -webkit-mask-image: radial-gradient(circle at center, black 75%, transparent 100%);
-        }
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -150,7 +144,7 @@
         </div>
     </div>
 
-    <!-- Hero Section (Mit perfekt verblendetem Logo ohne harte Kanten) -->
+    <!-- Hero Section -->
     <section id="start" class="hero-gradient text-white py-10 sm:py-16 lg:py-20 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -180,9 +174,8 @@
                     </div>
                 </div>
 
-                <!-- Kompaktes & verblendetes Logo auf der rechten Seite -->
                 <div class="flex flex-col items-center justify-center text-center">
-                    <img src="logo.png" alt="GGG Logo" class="w-48 sm:w-64 lg:w-72 h-auto object-contain blended-logo mb-4 transition-all">
+                    <img src="logo.png" alt="GGG Logo" class="w-48 sm:w-64 lg:w-72 h-auto object-contain mb-4 transition-all">
                     <div class="flex flex-wrap justify-center gap-2 text-[11px] sm:text-xs font-medium text-slate-200">
                         <span class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1"></i> Faire Festpreise &amp; Absprache</span>
                         <span class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1"></i> Zuverlässig &amp; Pünktlich</span>
@@ -192,7 +185,7 @@
         </div>
     </section>
 
-    <!-- Vorteile (Kompakter Swipe-Container für Mobile) -->
+    <!-- Vorteile (Jetzt auch als kompakter Swipe-Container auf dem Handy) -->
     <section id="vorteile" class="py-8 sm:py-14 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
@@ -202,7 +195,6 @@
                 <p class="text-[11px] text-slate-400 mt-2 block sm:hidden"><i class="fa-solid fa-arrow-right-arrow-left mr-1"></i> Nach links &amp; rechts wischen</p>
             </div>
 
-            <!-- Swipe Container Mobile / Grid Desktop -->
             <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 overflow-x-auto sm:overflow-visible no-scrollbar pb-3 sm:pb-0 px-1 snap-x snap-mandatory">
                 <div class="bg-sand-50 p-4 rounded-xl border border-sand-200 min-w-[240px] sm:min-w-0 snap-start shrink-0">
                     <div class="w-9 h-9 bg-brand-100 rounded-lg flex items-center justify-center text-brand-700 text-base mb-2.5">
@@ -249,7 +241,6 @@
                 <p class="text-[11px] text-slate-400 mt-2 block sm:hidden"><i class="fa-solid fa-arrow-right-arrow-left mr-1"></i> Wischen Sie durch die Leistungen</p>
             </div>
 
-            <!-- Swipe Container Mobile / Grid Desktop -->
             <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto sm:overflow-visible no-scrollbar pb-3 sm:pb-0 px-1 snap-x snap-mandatory">
                 
                 <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[260px] sm:min-w-0 snap-start shrink-0">
@@ -563,9 +554,14 @@
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- Adressfeld verknüpft & durch valide Adress-Suche geschützt -->
                             <div>
                                 <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-600 mb-1">Objekt- / Standort-Adresse *</label>
-                                <input type="text" id="form-location" name="Adresse" required placeholder="z. B. Löhne Gohfeld" class="w-full p-2.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs bg-white">
+                                <div class="relative">
+                                    <input type="text" id="form-location" name="Adresse" autocomplete="off" required placeholder="z. B. Löhne Gohfeld" class="w-full p-2.5 pr-8 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs bg-white">
+                                    <i class="fa-solid fa-location-dot absolute right-3 top-3 text-brand-600 text-xs"></i>
+                                    <ul id="form-address-suggestions" class="absolute z-50 w-full bg-white border border-sand-200 rounded-xl shadow-xl mt-1 hidden max-h-48 overflow-y-auto custom-scrollbar text-xs"></ul>
+                                </div>
                             </div>
                             
                             <div>
@@ -676,6 +672,9 @@
 
         const addrInput = document.getElementById('calc-address');
         const formLocation = document.getElementById('form-location');
+        const formSuggestBox = document.getElementById('form-address-suggestions');
+        
+        // Synchronisation von Rechner und Kontaktformular Adressen
         if(addrInput && formLocation) {
             addrInput.addEventListener('input', () => { formLocation.value = addrInput.value; });
         }
@@ -685,7 +684,9 @@
         const suggestBox = document.getElementById('address-suggestions');
         const distStatus = document.getElementById('dist-status');
         let suggestTimeout = null;
+        let formSuggestTimeout = null;
 
+        // Rechner Adress-Logik
         addrInput.addEventListener('input', function() {
             const query = this.value.trim();
             if (query.length < 3) {
@@ -696,20 +697,40 @@
                 return;
             }
             clearTimeout(suggestTimeout);
-            suggestTimeout = setTimeout(() => fetchSuggestions(query), 350);
+            suggestTimeout = setTimeout(() => fetchSuggestions(query, suggestBox, (disp) => {
+                addrInput.value = disp;
+                formLocation.value = disp;
+            }), 350);
+        });
+
+        // Formular Adress-Logik (garantiert nur gültige Adressen)
+        formLocation.addEventListener('input', function() {
+            const query = this.value.trim();
+            if (query.length < 3) {
+                formSuggestBox.classList.add('hidden');
+                return;
+            }
+            clearTimeout(formSuggestTimeout);
+            formSuggestTimeout = setTimeout(() => fetchSuggestions(query, formSuggestBox, (disp) => {
+                formLocation.value = disp;
+                addrInput.value = disp;
+            }), 350);
         });
 
         document.addEventListener('click', function(e) {
             if (!addrInput.contains(e.target) && !suggestBox.contains(e.target)) {
                 suggestBox.classList.add('hidden');
             }
+            if (!formLocation.contains(e.target) && !formSuggestBox.contains(e.target)) {
+                formSuggestBox.classList.add('hidden');
+            }
         });
 
-        async function fetchSuggestions(query) {
+        async function fetchSuggestions(query, targetBox, callback) {
             try {
                 const res = await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&lat=${LOEHNE_COORDS.lat}&lon=${LOEHNE_COORDS.lon}&limit=5&lang=de`);
                 const data = await res.json();
-                suggestBox.innerHTML = '';
+                targetBox.innerHTML = '';
                 if (data.features && data.features.length > 0) {
                     data.features.forEach(f => {
                         const p = f.properties;
@@ -719,20 +740,23 @@
                         const li = document.createElement('li');
                         li.className = 'px-3 py-2.5 hover:bg-brand-50 cursor-pointer border-b border-sand-100 flex items-center gap-2 text-slateDark';
                         li.innerHTML = `<i class="fa-solid fa-map-pin text-brand-500"></i><span>${displayName}</span>`;
-                        li.onclick = () => selectAddressAndCalculateRoute(displayName, f.geometry.coordinates[0], f.geometry.coordinates[1]);
-                        suggestBox.appendChild(li);
+                        li.onclick = () => {
+                            callback(displayName);
+                            targetBox.classList.add('hidden');
+                            if(targetBox === suggestBox) {
+                                selectAddressAndCalculateRoute(displayName, f.geometry.coordinates[0], f.geometry.coordinates[1]);
+                            }
+                        };
+                        targetBox.appendChild(li);
                     });
-                    suggestBox.classList.remove('hidden');
+                    targetBox.classList.remove('hidden');
                 } else {
-                    suggestBox.classList.add('hidden');
+                    targetBox.classList.add('hidden');
                 }
             } catch (e) { console.log(e); }
         }
 
         async function selectAddressAndCalculateRoute(displayName, lon, lat) {
-            addrInput.value = displayName;
-            formLocation.value = displayName;
-            suggestBox.classList.add('hidden');
             distStatus.innerHTML = '<span class="text-brand-700"><i class="fa-solid fa-spinner animate-spin"></i> Berechne Strecke...</span>';
 
             try {
