@@ -58,6 +58,7 @@
         }
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
+            height: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
             background: #f7f2e8;
@@ -66,6 +67,14 @@
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #c5a880;
             border-radius: 8px;
+        }
+        /* Verstecke Scrollbar für Swipe-Container, behält aber die Funktion */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
@@ -117,7 +126,7 @@
             <nav class="flex flex-col space-y-4 sm:space-y-6 text-center font-heading text-xl sm:text-3xl font-bold">
                 <a href="#start" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors">Startseite</a>
                 <a href="#leistungen" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors">Leistungen &amp; Extras</a>
-                <a href="#kalkulator" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors text-brand-300"><i class="fa-solid fa-calculator mr-2"></i> Pauschalpreis-Rechner</a>
+                <a href="#kalkulator" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors text-brand-300"><i class="fa-solid fa-calculator mr-2"></i> Preis-Orientierung</a>
                 <a href="#ueber-mich" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors">Über Mich</a>
                 <a href="#kontakt" onclick="closeNavPopup()" class="hover:text-brand-400 transition-colors">Kontakt</a>
             </nav>
@@ -136,7 +145,7 @@
         </div>
     </div>
 
-    <!-- Hero Section (Mit großem Logo freigestellt ohne Kasten rechts) -->
+    <!-- Hero Section -->
     <section id="start" class="hero-gradient text-white py-12 sm:py-20 lg:py-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -156,7 +165,7 @@
 
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
                         <a href="#kalkulator" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg text-center transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
-                            <span>Pauschalpreis berechnen</span>
+                            <span>Preis-Orientierung ansehen</span>
                             <i class="fa-solid fa-calculator"></i>
                         </a>
                         <a href="https://wa.me/4915750155796?text=Hallo%20Mike,%20ich%20brauche%20Hilfe%20rund%20ums%20Haus." target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-semibold px-6 py-3.5 rounded-xl text-center transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
@@ -166,11 +175,11 @@
                     </div>
                 </div>
 
-                <!-- Großes Logo freigestellt auf der rechten Seite -->
+                <!-- Großes Logo freigestellt rechts -->
                 <div class="flex flex-col items-center justify-center text-center">
-                    <img src="logo.png" alt="GGG Logo" class="w-full max-w-md h-auto object-contain drop-shadow-2xl mb-6">
+                    <img src="logo.png" alt="GGG Logo" class="w-full max-w-md h-auto object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)] mb-6 transition-all">
                     <div class="flex flex-wrap justify-center gap-3 text-xs sm:text-sm font-medium text-slate-200">
-                        <span class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1.5"></i> Feste Pauschalpreise</span>
+                        <span class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1.5"></i> Faire Festpreise &amp; Absprache</span>
                         <span class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1.5"></i> Zuverlässig &amp; Pünktlich</span>
                     </div>
                 </div>
@@ -178,17 +187,19 @@
         </div>
     </section>
 
-    <!-- Vorteile -->
-    <section id="vorteile" class="py-10 sm:py-16 bg-white">
+    <!-- Vorteile (Auf Handy als wischbarer Swipe-Container) -->
+    <section id="vorteile" class="py-10 sm:py-16 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
                 <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Der GGG-Service</span>
                 <h2 class="font-heading text-xl sm:text-3xl font-bold text-slateDark mt-1">Entlastung für Sie &amp; Ihr Objekt</h2>
                 <div class="w-12 h-1 bg-brand-600 mx-auto mt-3 rounded-full"></div>
+                <p class="text-xs text-slate-400 mt-2 block sm:hidden"><i class="fa-solid fa-arrow-right-arrow-left mr-1"></i> Nach links &amp; rechts wischen für mehr</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200">
+            <!-- Swipe Container für Mobile, Grid für Desktop -->
+            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible no-scrollbar pb-4 sm:pb-0 px-1 snap-x snap-mandatory">
+                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 min-w-[260px] sm:min-w-0 snap-start shrink-0">
                     <div class="w-11 h-11 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-xl mb-3">
                         <i class="fa-solid fa-briefcase"></i>
                     </div>
@@ -196,7 +207,7 @@
                     <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Sie haben im Job viel zu tun? Ich halte Ihr Grundstück in Schuss.</p>
                 </div>
 
-                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200">
+                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 min-w-[260px] sm:min-w-0 snap-start shrink-0">
                     <div class="w-11 h-11 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-xl mb-3">
                         <i class="fa-solid fa-building-user"></i>
                     </div>
@@ -204,7 +215,7 @@
                     <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Nicht vor Ort? Ich kümmere mich um Ihre Immobilie in Löhne.</p>
                 </div>
 
-                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200">
+                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 min-w-[260px] sm:min-w-0 snap-start shrink-0">
                     <div class="w-11 h-11 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-xl mb-3">
                         <i class="fa-solid fa-hands-holding-child"></i>
                     </div>
@@ -212,7 +223,7 @@
                     <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Unterstützung für Senioren und alle, die im Alltag Hände brauchen.</p>
                 </div>
 
-                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200">
+                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 min-w-[260px] sm:min-w-0 snap-start shrink-0">
                     <div class="w-11 h-11 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-xl mb-3">
                         <i class="fa-solid fa-toolbox"></i>
                     </div>
@@ -223,18 +234,20 @@
         </div>
     </section>
 
-    <!-- Leistungsübersicht -->
-    <section id="leistungen" class="py-10 sm:py-16 bg-sand-100/60">
+    <!-- Leistungsübersicht (Auch als wischbarer Swipe-Container auf dem Handy) -->
+    <section id="leistungen" class="py-10 sm:py-16 bg-sand-100/60 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
                 <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Leistungsübersicht</span>
                 <h2 class="font-heading text-xl sm:text-3xl font-bold text-slateDark mt-1">Was wir für Sie tun können</h2>
                 <div class="w-12 h-1 bg-brand-600 mx-auto mt-3 rounded-full"></div>
+                <p class="text-xs text-slate-400 mt-2 block sm:hidden"><i class="fa-solid fa-arrow-right-arrow-left mr-1"></i> Wischen Sie durch die Leistungen</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Swipe Container Mobile / Grid Desktop -->
+            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto sm:overflow-visible no-scrollbar pb-4 sm:pb-0 px-1 snap-x snap-mandatory">
                 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
                             <i class="fa-solid fa-seedling"></i>
@@ -246,10 +259,10 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Beete pflegen &amp; Unkraut zupfen</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Pauschal anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
                             <i class="fa-solid fa-tree"></i>
@@ -261,10 +274,10 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Inkl. Grünschnitt-Entsorgung</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Pauschal anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
                             <i class="fa-solid fa-couch"></i>
@@ -276,10 +289,10 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Bilder aufhängen &amp; Regale anbringen</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Pauschal anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
                             <i class="fa-solid fa-trash-can"></i>
@@ -291,10 +304,10 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Gründliche Reinigung</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Pauschal anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
                             <i class="fa-solid fa-lightbulb"></i>
@@ -306,10 +319,10 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Keller aufräumen &amp; Entrümpelung</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Pauschal anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
                     <div>
                         <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
                             <i class="fa-solid fa-house-chimney-window"></i>
@@ -321,20 +334,20 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Terrassen- &amp; Hofpflege</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Pauschal anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Pauschalpreis-Kalkulator -->
+    <!-- Preis-Orientierung / Kalkulator -->
     <section id="kalkulator" class="py-10 sm:py-16 bg-brand-dark text-white relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-8">
-                <span class="bg-brand-500/20 text-brand-300 border border-brand-500/30 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Transparente Festpreise</span>
-                <h2 class="font-heading text-xl sm:text-3xl font-bold mt-2">Pauschalpreis-Schnellcheck</h2>
-                <p class="text-slate-300 text-xs sm:text-sm mt-1">Wählen Sie Ihre gewünschte Aufgabe für eine sofortige Festpreis-Orientierung.</p>
+                <span class="bg-brand-500/20 text-brand-300 border border-brand-500/30 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Faire Richtwerte &amp; Individuelle Absprache</span>
+                <h2 class="font-heading text-xl sm:text-3xl font-bold mt-2">Preis-Orientierung &amp; Schnellcheck</h2>
+                <p class="text-slate-300 text-xs sm:text-sm mt-1">Wählen Sie Ihre Aufgabe für eine unverbindliche Richtwert-Orientierung. Wir finden vor Ort immer einen fairen, gemeinsamen Preis!</p>
             </div>
 
             <div class="bg-white text-slateDark rounded-3xl p-5 sm:p-8 shadow-2xl">
@@ -422,17 +435,17 @@
                 </div>
 
                 <div class="bg-brand-50 border border-brand-200 rounded-2xl p-5 text-center my-5">
-                    <span class="text-[10px] sm:text-xs uppercase tracking-wider font-bold text-brand-800">Unverbindlicher Festpreis-Richtwert</span>
+                    <span class="text-[10px] sm:text-xs uppercase tracking-wider font-bold text-brand-800">Unverbindlicher Richtwert (Individuell anpassbar)</span>
                     <div id="price-result" class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-800 my-1">40,00 €</div>
                     <p class="text-[11px] sm:text-xs text-slate-600 max-w-md mx-auto">
-                        Fester Pauschalpreis ohne versteckte Kosten. Zuverlässig &amp; pünktlich.
+                        Faire Orientierung – wir finden vor Ort immer eine gemeinsame, passende Einigung!
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <button onclick="sendCalcToWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 text-xs sm:text-sm transition-all">
                         <i class="fa-brands fa-whatsapp text-lg"></i>
-                        <span>Direkt per WhatsApp anfragen</span>
+                        <span>Unverbindlich per WhatsApp anfragen</span>
                     </button>
                     <a href="#kontakt" class="bg-brand-800 hover:bg-brand-900 text-white font-semibold py-3.5 px-4 rounded-xl text-center flex items-center justify-center gap-2 text-xs sm:text-sm transition-all">
                         <i class="fa-solid fa-envelope"></i>
@@ -473,8 +486,8 @@
 
                     <div class="grid grid-cols-2 gap-4 pt-4 border-t border-sand-300">
                         <div>
-                            <span class="font-heading font-bold text-lg sm:text-xl text-brand-800 block">Faire Festpreise</span>
-                            <span class="text-[11px] text-slate-500">Volle Transparenz</span>
+                            <span class="font-heading font-bold text-lg sm:text-xl text-brand-800 block">Faire Preise</span>
+                            <span class="text-[11px] text-slate-500">Individuelle Einigung</span>
                         </div>
                         <div>
                             <span class="font-heading font-bold text-lg sm:text-xl text-brand-800 block">Löhne &amp; Umgebung</span>
@@ -773,7 +786,7 @@
             const address = document.getElementById('calc-address').value || 'Löhne';
             const price = document.getElementById('price-result').textContent;
             
-            const text = `Hallo Mike! Pauschal-Anfrage:\n\nService: ${serviceText}\nObjektort: ${address} (ca. ${computedKm} km)\nRichtwert: ${price}\n\nWann hättest du Zeit dafür?`;
+            const text = `Hallo Mike! Anfrage zur Preis-Orientierung:\n\nService: ${serviceText}\nObjektort: ${address} (ca. ${computedKm} km)\nRichtwert: ${price}\n\nLass uns dazu sprechen!`;
             window.open(`https://wa.me/4915750155796?text=${encodeURIComponent(text)}`, '_blank');
         }
 
@@ -841,7 +854,7 @@
                     <p><strong>Angaben gemäß § 5 TMG:</strong><br>
                     GGG – Garten &amp; Grundstücksservice Giesbrecht<br>
                     Mike Leon Giesbrecht<br>
-                    [Deine Straße &amp; Hausnummer]<br>
+                    [Lilienweg &amp; 8]<br>
                     32584 Löhne</p>
                     <p><strong>Kontakt:</strong><br>
                     Telefon: +49 (0) 1575 0155796<br>
