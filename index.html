@@ -56,6 +56,10 @@
             background-size: cover;
             background-position: center;
         }
+        /* Dezenter weißer Schimmer-Effekt für das transparente Logo auf dem dunklen Hintergrund */
+        .logo-glow {
+            filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.15));
+        }
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -175,7 +179,7 @@
                 </div>
 
                 <div class="flex flex-col items-center justify-center text-center">
-                    <img src="logo.png" alt="GGG Logo" class="w-48 sm:w-64 lg:w-72 h-auto object-contain mb-4 transition-all">
+                    <img src="logo.png" alt="GGG Logo" class="w-48 sm:w-64 lg:w-72 h-auto object-contain logo-glow mb-4 transition-all">
                     <div class="flex flex-wrap justify-center gap-2 text-[11px] sm:text-xs font-medium text-slate-200">
                         <span class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1"></i> Faire Festpreise &amp; Absprache</span>
                         <span class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1"></i> Zuverlässig &amp; Pünktlich</span>
@@ -185,7 +189,7 @@
         </div>
     </section>
 
-    <!-- Vorteile (Jetzt auch als kompakter Swipe-Container auf dem Handy) -->
+    <!-- Vorteile -->
     <section id="vorteile" class="py-8 sm:py-14 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
@@ -554,7 +558,6 @@
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <!-- Adressfeld verknüpft & durch valide Adress-Suche geschützt -->
                             <div>
                                 <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-600 mb-1">Objekt- / Standort-Adresse *</label>
                                 <div class="relative">
@@ -674,7 +677,6 @@
         const formLocation = document.getElementById('form-location');
         const formSuggestBox = document.getElementById('form-address-suggestions');
         
-        // Synchronisation von Rechner und Kontaktformular Adressen
         if(addrInput && formLocation) {
             addrInput.addEventListener('input', () => { formLocation.value = addrInput.value; });
         }
@@ -686,7 +688,6 @@
         let suggestTimeout = null;
         let formSuggestTimeout = null;
 
-        // Rechner Adress-Logik
         addrInput.addEventListener('input', function() {
             const query = this.value.trim();
             if (query.length < 3) {
@@ -703,7 +704,6 @@
             }), 350);
         });
 
-        // Formular Adress-Logik (garantiert nur gültige Adressen)
         formLocation.addEventListener('input', function() {
             const query = this.value.trim();
             if (query.length < 3) {
@@ -883,7 +883,7 @@
                     <p><strong>Angaben gemäß § 5 TMG:</strong><br>
                     GGG – Garten &amp; Grundstücksservice Giesbrecht<br>
                     Mike Leon Giesbrecht<br>
-                    [Deine Straße &amp; Hausnummer]<br>
+                    [Lilienweg &amp; 8]<br>
                     32584 Löhne</p>
                     <p><strong>Kontakt:</strong><br>
                     Telefon: +49 (0) 1575 0155796<br>
