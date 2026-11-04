@@ -56,6 +56,12 @@
             background-size: cover;
             background-position: center;
         }
+        /* Feiner CSS-Trick zur perfekten Rand-Einbettung des Logos ohne harte Kanten */
+        .blended-logo {
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+            mask-image: radial-gradient(circle at center, black 75%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 75%, transparent 100%);
+        }
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -68,7 +74,6 @@
             background: #c5a880;
             border-radius: 8px;
         }
-        /* Verstecke Scrollbar für Swipe-Container, behält aber die Funktion */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -145,196 +150,196 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section id="start" class="hero-gradient text-white py-12 sm:py-20 lg:py-24 relative overflow-hidden">
+    <!-- Hero Section (Mit perfekt verblendetem Logo ohne harte Kanten) -->
+    <section id="start" class="hero-gradient text-white py-10 sm:py-16 lg:py-20 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div>
-                    <div class="inline-flex items-center gap-2 bg-brand-500/20 backdrop-blur-md border border-brand-400/30 text-brand-200 px-3 py-1 rounded-full text-xs font-medium mb-4 sm:mb-6">
+                    <div class="inline-flex items-center gap-2 bg-brand-500/20 backdrop-blur-md border border-brand-400/30 text-brand-200 px-3 py-1 rounded-full text-xs font-medium mb-3 sm:mb-4">
                         <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
                         Ihr Alltagshelfer in Löhne &amp; Umgebung
                     </div>
                     
-                    <h1 class="font-heading font-extrabold text-2xl sm:text-4xl lg:text-5xl tracking-tight leading-tight mb-4 sm:mb-6">
+                    <h1 class="font-heading font-extrabold text-2xl sm:text-4xl lg:text-5xl tracking-tight leading-tight mb-3 sm:mb-5">
                         Rundum-Service für Haus, Garten &amp; Grundstück
                     </h1>
                     
-                    <p class="text-sm sm:text-lg text-slate-200 font-light mb-6 sm:mb-8 leading-relaxed">
+                    <p class="text-xs sm:text-base text-slate-200 font-light mb-5 sm:mb-6 leading-relaxed">
                         Keine Zeit, nicht vor Ort oder einfach Unterstützung gesucht? Ob Rasenpflege, Möbel aufbauen, Mülltonnen-Service, Beete pflegen oder Handgriffe im Haus – ich erledige das zuverlässig für Sie.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
-                        <a href="#kalkulator" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg text-center transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+                    <div class="flex flex-col sm:flex-row gap-3 mb-6 sm:mb-8">
+                        <a href="#kalkulator" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold px-5 py-3 rounded-xl shadow-lg text-center transition-all flex items-center justify-center gap-2 text-xs sm:text-sm">
                             <span>Preis-Orientierung ansehen</span>
                             <i class="fa-solid fa-calculator"></i>
                         </a>
-                        <a href="https://wa.me/4915750155796?text=Hallo%20Mike,%20ich%20brauche%20Hilfe%20rund%20ums%20Haus." target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-semibold px-6 py-3.5 rounded-xl text-center transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
-                            <i class="fa-brands fa-whatsapp text-green-400 text-lg"></i>
+                        <a href="https://wa.me/4915750155796?text=Hallo%20Mike,%20ich%20brauche%20Hilfe%20rund%20ums%20Haus." target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-semibold px-5 py-3 rounded-xl text-center transition-all flex items-center justify-center gap-2 text-xs sm:text-sm">
+                            <i class="fa-brands fa-whatsapp text-green-400 text-base"></i>
                             <span>WhatsApp Chat</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Großes Logo freigestellt rechts -->
+                <!-- Kompaktes & verblendetes Logo auf der rechten Seite -->
                 <div class="flex flex-col items-center justify-center text-center">
-                    <img src="logo.png" alt="GGG Logo" class="w-full max-w-md h-auto object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)] mb-6 transition-all">
-                    <div class="flex flex-wrap justify-center gap-3 text-xs sm:text-sm font-medium text-slate-200">
-                        <span class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1.5"></i> Faire Festpreise &amp; Absprache</span>
-                        <span class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1.5"></i> Zuverlässig &amp; Pünktlich</span>
+                    <img src="logo.png" alt="GGG Logo" class="w-48 sm:w-64 lg:w-72 h-auto object-contain blended-logo mb-4 transition-all">
+                    <div class="flex flex-wrap justify-center gap-2 text-[11px] sm:text-xs font-medium text-slate-200">
+                        <span class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1"></i> Faire Festpreise &amp; Absprache</span>
+                        <span class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1"></i> Zuverlässig &amp; Pünktlich</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Vorteile (Auf Handy als wischbarer Swipe-Container) -->
-    <section id="vorteile" class="py-10 sm:py-16 bg-white overflow-hidden">
+    <!-- Vorteile (Kompakter Swipe-Container für Mobile) -->
+    <section id="vorteile" class="py-8 sm:py-14 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
                 <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Der GGG-Service</span>
-                <h2 class="font-heading text-xl sm:text-3xl font-bold text-slateDark mt-1">Entlastung für Sie &amp; Ihr Objekt</h2>
-                <div class="w-12 h-1 bg-brand-600 mx-auto mt-3 rounded-full"></div>
-                <p class="text-xs text-slate-400 mt-2 block sm:hidden"><i class="fa-solid fa-arrow-right-arrow-left mr-1"></i> Nach links &amp; rechts wischen für mehr</p>
-            </div>
-
-            <!-- Swipe Container für Mobile, Grid für Desktop -->
-            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible no-scrollbar pb-4 sm:pb-0 px-1 snap-x snap-mandatory">
-                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 min-w-[260px] sm:min-w-0 snap-start shrink-0">
-                    <div class="w-11 h-11 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-xl mb-3">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-base mb-1 text-slateDark">Ideal für Berufstätige</h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Sie haben im Job viel zu tun? Ich halte Ihr Grundstück in Schuss.</p>
-                </div>
-
-                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 min-w-[260px] sm:min-w-0 snap-start shrink-0">
-                    <div class="w-11 h-11 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-xl mb-3">
-                        <i class="fa-solid fa-building-user"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-base mb-1 text-slateDark">Für Vermieter &amp; extern</h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Nicht vor Ort? Ich kümmere mich um Ihre Immobilie in Löhne.</p>
-                </div>
-
-                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 min-w-[260px] sm:min-w-0 snap-start shrink-0">
-                    <div class="w-11 h-11 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-xl mb-3">
-                        <i class="fa-solid fa-hands-holding-child"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-base mb-1 text-slateDark">Hilfe im Alltag</h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Unterstützung für Senioren und alle, die im Alltag Hände brauchen.</p>
-                </div>
-
-                <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 min-w-[260px] sm:min-w-0 snap-start shrink-0">
-                    <div class="w-11 h-11 bg-brand-100 rounded-xl flex items-center justify-center text-brand-700 text-xl mb-3">
-                        <i class="fa-solid fa-toolbox"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-base mb-1 text-slateDark">Alles aus einer Hand</h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Vom Möbelaufbau bis zur Gartenpflege – einfach anfragen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Leistungsübersicht (Auch als wischbarer Swipe-Container auf dem Handy) -->
-    <section id="leistungen" class="py-10 sm:py-16 bg-sand-100/60 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-                <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Leistungsübersicht</span>
-                <h2 class="font-heading text-xl sm:text-3xl font-bold text-slateDark mt-1">Was wir für Sie tun können</h2>
-                <div class="w-12 h-1 bg-brand-600 mx-auto mt-3 rounded-full"></div>
-                <p class="text-xs text-slate-400 mt-2 block sm:hidden"><i class="fa-solid fa-arrow-right-arrow-left mr-1"></i> Wischen Sie durch die Leistungen</p>
+                <h2 class="font-heading text-lg sm:text-2xl font-bold text-slateDark mt-1">Entlastung für Sie &amp; Ihr Objekt</h2>
+                <div class="w-10 h-1 bg-brand-600 mx-auto mt-2 rounded-full"></div>
+                <p class="text-[11px] text-slate-400 mt-2 block sm:hidden"><i class="fa-solid fa-arrow-right-arrow-left mr-1"></i> Nach links &amp; rechts wischen</p>
             </div>
 
             <!-- Swipe Container Mobile / Grid Desktop -->
-            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto sm:overflow-visible no-scrollbar pb-4 sm:pb-0 px-1 snap-x snap-mandatory">
+            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 overflow-x-auto sm:overflow-visible no-scrollbar pb-3 sm:pb-0 px-1 snap-x snap-mandatory">
+                <div class="bg-sand-50 p-4 rounded-xl border border-sand-200 min-w-[240px] sm:min-w-0 snap-start shrink-0">
+                    <div class="w-9 h-9 bg-brand-100 rounded-lg flex items-center justify-center text-brand-700 text-base mb-2.5">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-sm mb-1 text-slateDark">Ideal für Berufstätige</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Sie haben im Job viel zu tun? Ich halte Ihr Grundstück in Schuss.</p>
+                </div>
+
+                <div class="bg-sand-50 p-4 rounded-xl border border-sand-200 min-w-[240px] sm:min-w-0 snap-start shrink-0">
+                    <div class="w-9 h-9 bg-brand-100 rounded-lg flex items-center justify-center text-brand-700 text-base mb-2.5">
+                        <i class="fa-solid fa-building-user"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-sm mb-1 text-slateDark">Für Vermieter &amp; extern</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Nicht vor Ort? Ich kümmere mich um Ihre Immobilie in Löhne.</p>
+                </div>
+
+                <div class="bg-sand-50 p-4 rounded-xl border border-sand-200 min-w-[240px] sm:min-w-0 snap-start shrink-0">
+                    <div class="w-9 h-9 bg-brand-100 rounded-lg flex items-center justify-center text-brand-700 text-base mb-2.5">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-sm mb-1 text-slateDark">Hilfe im Alltag</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Unterstützung für Senioren und alle, die im Alltag Hände brauchen.</p>
+                </div>
+
+                <div class="bg-sand-50 p-4 rounded-xl border border-sand-200 min-w-[240px] sm:min-w-0 snap-start shrink-0">
+                    <div class="w-9 h-9 bg-brand-100 rounded-lg flex items-center justify-center text-brand-700 text-base mb-2.5">
+                        <i class="fa-solid fa-toolbox"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-sm mb-1 text-slateDark">Alles aus einer Hand</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Vom Möbelaufbau bis zur Gartenpflege – einfach anfragen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leistungsübersicht -->
+    <section id="leistungen" class="py-8 sm:py-14 bg-sand-100/60 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
+                <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Leistungsübersicht</span>
+                <h2 class="font-heading text-lg sm:text-2xl font-bold text-slateDark mt-1">Was wir für Sie tun können</h2>
+                <div class="w-10 h-1 bg-brand-600 mx-auto mt-2 rounded-full"></div>
+                <p class="text-[11px] text-slate-400 mt-2 block sm:hidden"><i class="fa-solid fa-arrow-right-arrow-left mr-1"></i> Wischen Sie durch die Leistungen</p>
+            </div>
+
+            <!-- Swipe Container Mobile / Grid Desktop -->
+            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto sm:overflow-visible no-scrollbar pb-3 sm:pb-0 px-1 snap-x snap-mandatory">
                 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[260px] sm:min-w-0 snap-start shrink-0">
                     <div>
-                        <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-seedling"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-lg text-slateDark mb-2">Rasenpflege &amp; Beete</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm mb-4">Gepflegte Grünflächen ohne eigenen Aufwand.</p>
-                        <ul class="text-slate-700 text-xs sm:text-sm space-y-2 mb-6">
+                        <h3 class="font-heading font-bold text-base text-slateDark mb-1.5">Rasenpflege &amp; Beete</h3>
+                        <p class="text-slate-600 text-xs mb-3">Gepflegte Grünflächen ohne eigenen Aufwand.</p>
+                        <ul class="text-slate-700 text-xs space-y-1.5 mb-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Rasenmähen &amp; Kanten schneiden</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Beete pflegen &amp; Unkraut zupfen</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs block">Angebot anfragen</a>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[260px] sm:min-w-0 snap-start shrink-0">
                     <div>
-                        <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-tree"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-lg text-slateDark mb-2">Hecken &amp; Sträucher</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm mb-4">Formschnitt und Rückschnitt inklusive Mitnahme.</p>
-                        <ul class="text-slate-700 text-xs sm:text-sm space-y-2 mb-6">
+                        <h3 class="font-heading font-bold text-base text-slateDark mb-1.5">Hecken &amp; Sträucher</h3>
+                        <p class="text-slate-600 text-xs mb-3">Formschnitt und Rückschnitt inklusive Mitnahme.</p>
+                        <ul class="text-slate-700 text-xs space-y-1.5 mb-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Hecken-Formschnitt</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Inkl. Grünschnitt-Entsorgung</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs block">Angebot anfragen</a>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[260px] sm:min-w-0 snap-start shrink-0">
                     <div>
-                        <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-couch"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-lg text-slateDark mb-2">Möbelaufbau &amp; Montage</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm mb-4">Hilfe bei neuen Möbeln oder kleineren Aufbauten.</p>
-                        <ul class="text-slate-700 text-xs sm:text-sm space-y-2 mb-6">
+                        <h3 class="font-heading font-bold text-base text-slateDark mb-1.5">Möbelaufbau &amp; Montage</h3>
+                        <p class="text-slate-600 text-xs mb-3">Hilfe bei neuen Möbeln oder kleineren Aufbauten.</p>
+                        <ul class="text-slate-700 text-xs space-y-1.5 mb-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Möbel aufbauen &amp; ausrichten</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Bilder aufhängen &amp; Regale anbringen</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs block">Angebot anfragen</a>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[260px] sm:min-w-0 snap-start shrink-0">
                     <div>
-                        <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-trash-can"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-lg text-slateDark mb-2">Mülltonnen-Service</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm mb-4">Zuverlässig rausstellen und reinigen.</p>
-                        <ul class="text-slate-700 text-xs sm:text-sm space-y-2 mb-6">
+                        <h3 class="font-heading font-bold text-base text-slateDark mb-1.5">Mülltonnen-Service</h3>
+                        <p class="text-slate-600 text-xs mb-3">Zuverlässig rausstellen und reinigen.</p>
+                        <ul class="text-slate-700 text-xs space-y-1.5 mb-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Tonnendienst zu Terminen</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Gründliche Reinigung</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs block">Angebot anfragen</a>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[260px] sm:min-w-0 snap-start shrink-0">
                     <div>
-                        <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-lightbulb"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-lg text-slateDark mb-2">Kleine Handgriffe &amp; Extras</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm mb-4">Alles was im und ums Haus anfällt.</p>
-                        <ul class="text-slate-700 text-xs sm:text-sm space-y-2 mb-6">
+                        <h3 class="font-heading font-bold text-base text-slateDark mb-1.5">Kleine Handgriffe &amp; Extras</h3>
+                        <p class="text-slate-600 text-xs mb-3">Alles was im und ums Haus anfällt.</p>
+                        <ul class="text-slate-700 text-xs space-y-1.5 mb-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Lampen &amp; Leuchtmittel tauschen</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Keller aufräumen &amp; Entrümpelung</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs block">Angebot anfragen</a>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[280px] sm:min-w-0 snap-start shrink-0">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-sand-200 flex flex-col justify-between min-w-[260px] sm:min-w-0 snap-start shrink-0">
                     <div>
-                        <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <div class="w-10 h-10 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-lg mb-3">
                             <i class="fa-solid fa-house-chimney-window"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-lg text-slateDark mb-2">Dachrinne &amp; Außenbereich</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm mb-4">Sauberkeit rund um das Gebäude.</p>
-                        <ul class="text-slate-700 text-xs sm:text-sm space-y-2 mb-6">
+                        <h3 class="font-heading font-bold text-base text-slateDark mb-1.5">Dachrinne &amp; Außenbereich</h3>
+                        <p class="text-slate-600 text-xs mb-3">Sauberkeit rund um das Gebäude.</p>
+                        <ul class="text-slate-700 text-xs space-y-1.5 mb-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Dachrinnenreinigung</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Terrassen- &amp; Hofpflege</li>
                         </ul>
                     </div>
-                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2.5 rounded-xl transition-all text-xs sm:text-sm block">Angebot anfragen</a>
+                    <a href="#kalkulator" class="w-full text-center bg-sand-100 hover:bg-brand-700 hover:text-white text-slateDark font-semibold py-2 rounded-xl transition-all text-xs block">Angebot anfragen</a>
                 </div>
 
             </div>
@@ -342,23 +347,23 @@
     </section>
 
     <!-- Preis-Orientierung / Kalkulator -->
-    <section id="kalkulator" class="py-10 sm:py-16 bg-brand-dark text-white relative">
+    <section id="kalkulator" class="py-8 sm:py-14 bg-brand-dark text-white relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-8">
+            <div class="text-center mb-6">
                 <span class="bg-brand-500/20 text-brand-300 border border-brand-500/30 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Faire Richtwerte &amp; Individuelle Absprache</span>
-                <h2 class="font-heading text-xl sm:text-3xl font-bold mt-2">Preis-Orientierung &amp; Schnellcheck</h2>
-                <p class="text-slate-300 text-xs sm:text-sm mt-1">Wählen Sie Ihre Aufgabe für eine unverbindliche Richtwert-Orientierung. Wir finden vor Ort immer einen fairen, gemeinsamen Preis!</p>
+                <h2 class="font-heading text-lg sm:text-2xl font-bold mt-2">Preis-Orientierung &amp; Schnellcheck</h2>
+                <p class="text-slate-300 text-xs mt-1">Wählen Sie Ihre Aufgabe für eine unverbindliche Richtwert-Orientierung. Wir finden vor Ort immer einen fairen, gemeinsamen Preis!</p>
             </div>
 
-            <div class="bg-white text-slateDark rounded-3xl p-5 sm:p-8 shadow-2xl">
+            <div class="bg-white text-slateDark rounded-3xl p-4 sm:p-7 shadow-2xl">
                 
-                <div class="mb-6">
-                    <label class="block font-heading font-bold text-sm text-slateDark mb-3 border-b border-sand-200 pb-2">
+                <div class="mb-5">
+                    <label class="block font-heading font-bold text-xs sm:text-sm text-slateDark mb-2.5 border-b border-sand-200 pb-2">
                         Wählen Sie Ihren gewünschten Service:
                     </label>
 
-                    <div class="space-y-3">
-                        <label class="flex items-center justify-between p-3.5 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
+                    <div class="space-y-2.5">
+                        <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
                             <div class="flex items-center">
                                 <input type="radio" name="pauschal-service" value="rasen" class="w-4 h-4 accent-brand-600" checked onchange="updatePauschalPrice()">
                                 <span class="ml-3 font-semibold text-xs sm:text-sm">Rasenmähen &amp; Kanten (bis ca. 300 m²)</span>
@@ -366,7 +371,7 @@
                             <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 40 €</span>
                         </label>
 
-                        <label class="flex items-center justify-between p-3.5 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
+                        <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
                             <div class="flex items-center">
                                 <input type="radio" name="pauschal-service" value="beete" class="w-4 h-4 accent-brand-600" onchange="updatePauschalPrice()">
                                 <span class="ml-3 font-semibold text-xs sm:text-sm">Beete pflegen &amp; Unkraut zupfen</span>
@@ -374,7 +379,7 @@
                             <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 35 €</span>
                         </label>
 
-                        <label class="flex items-center justify-between p-3.5 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
+                        <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
                             <div class="flex items-center">
                                 <input type="radio" name="pauschal-service" value="hecke" class="w-4 h-4 accent-brand-600" onchange="updatePauschalPrice()">
                                 <span class="ml-3 font-semibold text-xs sm:text-sm">Hecken- / Strauchschnitt (bis ca. 10m)</span>
@@ -382,7 +387,7 @@
                             <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 50 €</span>
                         </label>
 
-                        <label class="flex items-center justify-between p-3.5 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
+                        <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
                             <div class="flex items-center">
                                 <input type="radio" name="pauschal-service" value="moebel" class="w-4 h-4 accent-brand-600" onchange="updatePauschalPrice()">
                                 <span class="ml-3 font-semibold text-xs sm:text-sm">Möbel aufbauen / Bilder &amp; Regale anbringen</span>
@@ -390,7 +395,7 @@
                             <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 35 €</span>
                         </label>
 
-                        <label class="flex items-center justify-between p-3.5 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
+                        <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
                             <div class="flex items-center">
                                 <input type="radio" name="pauschal-service" value="muelltonne" class="w-4 h-4 accent-brand-600" onchange="updatePauschalPrice()">
                                 <span class="ml-3 font-semibold text-xs sm:text-sm">Mülltonnen-Service (Rau &amp; Reinigung)</span>
@@ -398,7 +403,7 @@
                             <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 15 €</span>
                         </label>
 
-                        <label class="flex items-center justify-between p-3.5 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
+                        <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
                             <div class="flex items-center">
                                 <input type="radio" name="pauschal-service" value="lampe" class="w-4 h-4 accent-brand-600" onchange="updatePauschalPrice()">
                                 <span class="ml-3 font-semibold text-xs sm:text-sm">Lampen tauschen / Kleine Handgriffe</span>
@@ -406,7 +411,7 @@
                             <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 20 €</span>
                         </label>
 
-                        <label class="flex items-center justify-between p-3.5 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
+                        <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
                             <div class="flex items-center">
                                 <input type="radio" name="pauschal-service" value="dachrinne" class="w-4 h-4 accent-brand-600" onchange="updatePauschalPrice()">
                                 <span class="ml-3 font-semibold text-xs sm:text-sm">Dachrinnenreinigung (kleines Haus)</span>
@@ -414,7 +419,7 @@
                             <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 60 €</span>
                         </label>
 
-                        <label class="flex items-center justify-between p-3.5 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
+                        <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
                             <div class="flex items-center">
                                 <input type="radio" name="pauschal-service" value="sonstiges" class="w-4 h-4 accent-brand-600" onchange="updatePauschalPrice()">
                                 <span class="ml-3 font-semibold text-xs sm:text-sm">Individuelle Extra-Anfrage (nach Absprache)</span>
@@ -424,30 +429,30 @@
                     </div>
                 </div>
 
-                <div class="bg-sand-50 p-4 rounded-xl border border-sand-200 mb-5">
-                    <label class="block font-heading font-bold text-xs sm:text-sm text-slateDark mb-1.5">Ihr Standort in Löhne &amp; Umgebung:</label>
+                <div class="bg-sand-50 p-3.5 rounded-xl border border-sand-200 mb-4">
+                    <label class="block font-heading font-bold text-xs text-slateDark mb-1">Ihr Standort in Löhne &amp; Umgebung:</label>
                     <div class="relative">
-                        <input type="text" id="calc-address" autocomplete="off" placeholder="Tippen Sie Ihre Straße oder PLZ..." class="w-full p-3 pr-10 border border-sand-300 rounded-xl font-medium text-xs sm:text-sm outline-none bg-white">
-                        <i class="fa-solid fa-location-dot absolute right-3.5 top-3.5 text-brand-600"></i>
-                        <ul id="address-suggestions" class="absolute z-50 w-full bg-white border border-sand-200 rounded-xl shadow-xl mt-1 hidden max-h-48 overflow-y-auto custom-scrollbar text-xs sm:text-sm"></ul>
+                        <input type="text" id="calc-address" autocomplete="off" placeholder="Tippen Sie Ihre Straße oder PLZ..." class="w-full p-2.5 pr-9 border border-sand-300 rounded-xl font-medium text-xs outline-none bg-white">
+                        <i class="fa-solid fa-location-dot absolute right-3 top-3 text-brand-600"></i>
+                        <ul id="address-suggestions" class="absolute z-50 w-full bg-white border border-sand-200 rounded-xl shadow-xl mt-1 hidden max-h-48 overflow-y-auto custom-scrollbar text-xs"></ul>
                     </div>
-                    <div id="dist-status" class="mt-2 text-xs text-slate-500">📍 Bitte Standort eingeben (Anfahrt in Löhne inklusive).</div>
+                    <div id="dist-status" class="mt-1.5 text-[11px] text-slate-500">📍 Bitte Standort eingeben (Anfahrt in Löhne inklusive).</div>
                 </div>
 
-                <div class="bg-brand-50 border border-brand-200 rounded-2xl p-5 text-center my-5">
-                    <span class="text-[10px] sm:text-xs uppercase tracking-wider font-bold text-brand-800">Unverbindlicher Richtwert (Individuell anpassbar)</span>
-                    <div id="price-result" class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-800 my-1">40,00 €</div>
-                    <p class="text-[11px] sm:text-xs text-slate-600 max-w-md mx-auto">
+                <div class="bg-brand-50 border border-brand-200 rounded-2xl p-4 text-center my-4">
+                    <span class="text-[10px] uppercase tracking-wider font-bold text-brand-800">Unverbindlicher Richtwert (Individuell anpassbar)</span>
+                    <div id="price-result" class="text-2xl sm:text-3xl font-heading font-extrabold text-brand-800 my-1">40,00 €</div>
+                    <p class="text-[11px] text-slate-600 max-w-md mx-auto">
                         Faire Orientierung – wir finden vor Ort immer eine gemeinsame, passende Einigung!
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <button onclick="sendCalcToWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 text-xs sm:text-sm transition-all">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <button onclick="sendCalcToWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-3 rounded-xl shadow-md flex items-center justify-center gap-2 text-xs transition-all">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
                         <span>Unverbindlich per WhatsApp anfragen</span>
                     </button>
-                    <a href="#kontakt" class="bg-brand-800 hover:bg-brand-900 text-white font-semibold py-3.5 px-4 rounded-xl text-center flex items-center justify-center gap-2 text-xs sm:text-sm transition-all">
+                    <a href="#kontakt" class="bg-brand-800 hover:bg-brand-900 text-white font-semibold py-3 px-3 rounded-xl text-center flex items-center justify-center gap-2 text-xs transition-all">
                         <i class="fa-solid fa-envelope"></i>
                         <span>Per Formular anfragen</span>
                     </a>
@@ -458,40 +463,40 @@
     </section>
 
     <!-- Über mich -->
-    <section id="ueber-mich" class="py-10 sm:py-16 bg-sand-100/70 border-t border-sand-200">
+    <section id="ueber-mich" class="py-8 sm:py-14 bg-sand-100/70 border-t border-sand-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
                 <div class="relative">
-                    <div class="w-full h-72 sm:h-96 bg-sand-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white flex flex-col items-center justify-center text-sand-600 gap-2">
-                        <i class="fa-solid fa-camera text-3xl"></i>
-                        <span class="font-heading font-bold uppercase text-xs sm:text-sm tracking-wider">Foto folgt in Kürze</span>
-                        <span class="text-xs text-slate-500">Mike Leon Giesbrecht</span>
+                    <div class="w-full h-64 sm:h-80 bg-sand-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white flex flex-col items-center justify-center text-sand-600 gap-2">
+                        <i class="fa-solid fa-camera text-2xl"></i>
+                        <span class="font-heading font-bold uppercase text-xs tracking-wider">Foto folgt in Kürze</span>
+                        <span class="text-[11px] text-slate-500">Mike Leon Giesbrecht</span>
                     </div>
                 </div>
 
                 <div>
-                    <div class="flex items-center gap-2 mb-2">
+                    <div class="flex items-center gap-2 mb-1.5">
                         <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Ihr Alltagshelfer vor Ort</span>
                     </div>
                     
-                    <h2 class="font-heading text-xl sm:text-3xl font-bold text-slateDark mt-1 mb-4">Hallo, ich bin Mike Leon Giesbrecht</h2>
+                    <h2 class="font-heading text-lg sm:text-2xl font-bold text-slateDark mt-1 mb-3">Hallo, ich bin Mike Leon Giesbrecht</h2>
                     
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-3">
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-2.5">
                         Als Gründer von <strong>GGG – Garten &amp; Grundstücksservice Giesbrecht</strong> entlaste ich vielbeschäftigte Hausbesitzer, Vermieter und Senioren bei allen Aufgaben rund um Haus und Grundstück.
                     </p>
 
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
                         Sie haben keine Zeit, sind beruflich eingespannt oder nicht vor Ort? Kein Problem. Ob Möbel aufbauen, Beete pflegen, Rasenmähen oder kleine Handgriffe – ich packe verlässlich und sauber an.
                     </p>
 
-                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-sand-300">
+                    <div class="grid grid-cols-2 gap-3 pt-3 border-t border-sand-300">
                         <div>
-                            <span class="font-heading font-bold text-lg sm:text-xl text-brand-800 block">Faire Preise</span>
-                            <span class="text-[11px] text-slate-500">Individuelle Einigung</span>
+                            <span class="font-heading font-bold text-base sm:text-lg text-brand-800 block">Faire Preise</span>
+                            <span class="text-[10px] text-slate-500">Individuelle Einigung</span>
                         </div>
                         <div>
-                            <span class="font-heading font-bold text-lg sm:text-xl text-brand-800 block">Löhne &amp; Umgebung</span>
-                            <span class="text-[11px] text-slate-500">Schnell vor Ort</span>
+                            <span class="font-heading font-bold text-base sm:text-lg text-brand-800 block">Löhne &amp; Umgebung</span>
+                            <span class="text-[10px] text-slate-500">Schnell vor Ort</span>
                         </div>
                     </div>
                 </div>
@@ -500,20 +505,20 @@
     </section>
 
     <!-- Kontaktformular -->
-    <section id="kontakt" class="py-10 sm:py-16 bg-white border-t border-sand-200">
+    <section id="kontakt" class="py-8 sm:py-14 bg-white border-t border-sand-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div class="lg:col-span-1">
                     <span class="text-brand-700 font-semibold text-xs uppercase tracking-wider">Direktkontakt</span>
-                    <h2 class="font-heading text-xl sm:text-2xl font-bold text-slateDark mt-1 mb-4">Unverbindlich anfragen</h2>
-                    <p class="text-slate-600 text-xs sm:text-sm mb-6">
+                    <h2 class="font-heading text-lg sm:text-xl font-bold text-slateDark mt-1 mb-3">Unverbindlich anfragen</h2>
+                    <p class="text-slate-600 text-xs mb-5">
                         Rufen Sie an, schreiben Sie per WhatsApp oder nutzen Sie das Formular.
                     </p>
 
-                    <div class="space-y-4 text-xs sm:text-sm">
-                        <div class="flex items-start gap-3">
-                            <div class="w-9 h-9 bg-sand-50 rounded-xl flex items-center justify-center text-brand-700 shadow-sm border border-sand-200 shrink-0">
-                                <i class="fa-solid fa-phone"></i>
+                    <div class="space-y-3 text-xs">
+                        <div class="flex items-start gap-2.5">
+                            <div class="w-8 h-8 bg-sand-50 rounded-lg flex items-center justify-center text-brand-700 shadow-sm border border-sand-200 shrink-0">
+                                <i class="fa-solid fa-phone text-xs"></i>
                             </div>
                             <div>
                                 <span class="block text-[10px] text-slate-400">Telefon / Mobil</span>
@@ -521,9 +526,9 @@
                             </div>
                         </div>
 
-                        <div class="flex items-start gap-3">
-                            <div class="w-9 h-9 bg-sand-50 rounded-xl flex items-center justify-center text-brand-700 shadow-sm border border-sand-200 shrink-0">
-                                <i class="fa-brands fa-whatsapp text-base text-green-600"></i>
+                        <div class="flex items-start gap-2.5">
+                            <div class="w-8 h-8 bg-sand-50 rounded-lg flex items-center justify-center text-brand-700 shadow-sm border border-sand-200 shrink-0">
+                                <i class="fa-brands fa-whatsapp text-sm text-green-600"></i>
                             </div>
                             <div>
                                 <span class="block text-[10px] text-slate-400">WhatsApp Blitz-Kontakt</span>
@@ -531,9 +536,9 @@
                             </div>
                         </div>
 
-                        <div class="flex items-start gap-3">
-                            <div class="w-9 h-9 bg-sand-50 rounded-xl flex items-center justify-center text-brand-700 shadow-sm border border-sand-200 shrink-0">
-                                <i class="fa-solid fa-envelope"></i>
+                        <div class="flex items-start gap-2.5">
+                            <div class="w-8 h-8 bg-sand-50 rounded-lg flex items-center justify-center text-brand-700 shadow-sm border border-sand-200 shrink-0">
+                                <i class="fa-solid fa-envelope text-xs"></i>
                             </div>
                             <div>
                                 <span class="block text-[10px] text-slate-400">E-Mail</span>
@@ -543,29 +548,29 @@
                     </div>
                 </div>
 
-                <div class="lg:col-span-2 bg-sand-50 rounded-3xl p-5 sm:p-8 shadow-xl border border-sand-200 relative overflow-hidden">
+                <div class="lg:col-span-2 bg-sand-50 rounded-2xl p-4 sm:p-7 shadow-lg border border-sand-200 relative overflow-hidden">
                     
-                    <form id="contact-form" class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <form id="contact-form" class="space-y-3.5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
-                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1.5">Ihr Name *</label>
-                                <input type="text" id="form-name" name="Name" required placeholder="Vor- und Nachname" class="w-full p-3 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs sm:text-sm bg-white">
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-600 mb-1">Ihr Name *</label>
+                                <input type="text" id="form-name" name="Name" required placeholder="Vor- und Nachname" class="w-full p-2.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs bg-white">
                             </div>
                             <div>
-                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1.5">Telefonnummer *</label>
-                                <input type="tel" id="form-phone" name="Telefon" required placeholder="Für Rückfragen" class="w-full p-3 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs sm:text-sm bg-white">
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-600 mb-1">Telefonnummer *</label>
+                                <input type="tel" id="form-phone" name="Telefon" required placeholder="Für Rückfragen" class="w-full p-2.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs bg-white">
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
-                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1.5">Objekt- / Standort-Adresse *</label>
-                                <input type="text" id="form-location" name="Adresse" required placeholder="z. B. Löhne Gohfeld" class="w-full p-3 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs sm:text-sm bg-white">
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-600 mb-1">Objekt- / Standort-Adresse *</label>
+                                <input type="text" id="form-location" name="Adresse" required placeholder="z. B. Löhne Gohfeld" class="w-full p-2.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs bg-white">
                             </div>
                             
                             <div>
-                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1.5">Gewünschter Service *</label>
-                                <select id="form-service" name="Gewünschter_Service" class="w-full p-3 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs sm:text-sm bg-white">
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-600 mb-1">Gewünschter Service *</label>
+                                <select id="form-service" name="Gewünschter_Service" class="w-full p-2.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs bg-white">
                                     <option value="Rasenpflege">Rasenmähen & Kanten</option>
                                     <option value="Beete pflegen">Beete pflegen & Unkraut zupfen</option>
                                     <option value="Heckenschnitt">Hecken- / Strauchschnitt</option>
@@ -579,30 +584,30 @@
                         </div>
 
                         <div>
-                            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1.5">Ihre Nachricht / Details zur Aufgabe</label>
-                            <textarea id="form-message" name="Nachricht" rows="3" placeholder="Beschreiben Sie kurz, was erledigt werden soll..." class="w-full p-3 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs sm:text-sm bg-white"></textarea>
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-600 mb-1">Ihre Nachricht / Details zur Aufgabe</label>
+                            <textarea id="form-message" name="Nachricht" rows="2.5" placeholder="Beschreiben Sie kurz, was erledigt werden soll..." class="w-full p-2.5 border border-sand-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-xs bg-white"></textarea>
                         </div>
 
-                        <button type="submit" id="submit-btn" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-semibold py-3.5 rounded-xl shadow-md transition-all text-xs sm:text-sm flex items-center justify-center gap-2">
+                        <button type="submit" id="submit-btn" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-semibold py-3 rounded-xl shadow-md transition-all text-xs flex items-center justify-center gap-2">
                             <span>Anfrage per E-Mail absenden</span>
-                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                            <i class="fa-solid fa-paper-plane text-[10px]"></i>
                         </button>
                     </form>
 
-                    <div id="success-box" class="hidden text-center py-4 px-2 space-y-4">
-                        <div class="w-16 h-16 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner border-2 border-white">
+                    <div id="success-box" class="hidden text-center py-3 px-2 space-y-3">
+                        <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center text-2xl mx-auto shadow-inner border-2 border-white">
                             <i class="fa-solid fa-circle-check"></i>
                         </div>
                         
                         <div>
-                            <span class="text-brand-700 font-semibold text-[11px] uppercase tracking-wider">Erfolgreich übermittelt</span>
-                            <h3 class="font-heading font-extrabold text-xl sm:text-2xl text-slateDark mt-1">Vielen Dank für Ihre Anfrage!</h3>
+                            <span class="text-brand-700 font-semibold text-[10px] uppercase tracking-wider">Erfolgreich übermittelt</span>
+                            <h3 class="font-heading font-extrabold text-lg sm:text-xl text-slateDark mt-0.5">Vielen Dank für Ihre Anfrage!</h3>
                             <p class="text-xs text-slate-600 max-w-md mx-auto">
                                 Ihre Nachricht wurde übermittelt. Wir melden uns zeitnah bei Ihnen.
                             </p>
                         </div>
 
-                        <button onclick="resetContactForm()" class="bg-brand-700 hover:bg-brand-800 text-white font-semibold py-3 px-6 rounded-xl text-xs sm:text-sm inline-flex items-center gap-2">
+                        <button onclick="resetContactForm()" class="bg-brand-700 hover:bg-brand-800 text-white font-semibold py-2.5 px-5 rounded-xl text-xs inline-flex items-center gap-2">
                             <i class="fa-solid fa-rotate-left"></i> Weitere Anfrage stellen
                         </button>
                     </div>
@@ -613,25 +618,25 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark text-slate-400 py-8 border-t border-brand-900 text-xs">
+    <footer class="bg-brand-dark text-slate-400 py-6 border-t border-brand-900 text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-                <div class="flex items-center gap-3 justify-center">
-                    <img src="logo.png" alt="GGG Logo" class="w-10 h-10 object-contain rounded-lg bg-white p-1">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
+                <div class="flex items-center gap-2.5 justify-center">
+                    <img src="logo.png" alt="GGG Logo" class="w-8 h-8 object-contain rounded-lg bg-white p-0.5">
                     <div>
-                        <span class="font-heading font-bold text-white block text-xs sm:text-sm">GGG – Garten &amp; Grundstücksservice Giesbrecht</span>
+                        <span class="font-heading font-bold text-white block text-xs">GGG – Garten &amp; Grundstücksservice Giesbrecht</span>
                         <span class="text-[10px] text-slate-400">Inhaber: Mike Leon Giesbrecht | Löhne</span>
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-4 text-xs justify-center">
+                <div class="flex flex-wrap gap-3 text-xs justify-center">
                     <button onclick="openLegalModal('impressum')" class="hover:text-white transition-colors">Impressum</button>
                     <button onclick="openLegalModal('datenschutz')" class="hover:text-white transition-colors">Datenschutz</button>
                     <span class="text-slate-500">§ 19 UStG Kleinunternehmer.</span>
                 </div>
             </div>
 
-            <div class="mt-6 pt-4 border-t border-white/5 text-center text-[11px] text-slate-500">
+            <div class="mt-4 pt-3 border-t border-white/5 text-center text-[10px] text-slate-500">
                 © <span id="year">2026</span> GGG Giesbrecht. Alle Rechte vorbehalten.
             </div>
         </div>
@@ -854,7 +859,7 @@
                     <p><strong>Angaben gemäß § 5 TMG:</strong><br>
                     GGG – Garten &amp; Grundstücksservice Giesbrecht<br>
                     Mike Leon Giesbrecht<br>
-                    [Lilienweg &amp; 8]<br>
+                    [Deine Straße &amp; Hausnummer]<br>
                     32584 Löhne</p>
                     <p><strong>Kontakt:</strong><br>
                     Telefon: +49 (0) 1575 0155796<br>
