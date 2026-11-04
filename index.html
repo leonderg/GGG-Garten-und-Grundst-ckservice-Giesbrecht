@@ -56,10 +56,6 @@
             background-size: cover;
             background-position: center;
         }
-        /* Dezenter weißer Schimmer-Effekt für das transparente Logo auf dem dunklen Hintergrund */
-        .logo-glow {
-            filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.15));
-        }
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -148,41 +144,56 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section id="start" class="hero-gradient text-white py-10 sm:py-16 lg:py-20 relative overflow-hidden">
+    <!-- Hero Section (Mit edlem, maßgeschneidertem weißen Container für das transparente Logo) -->
+    <section id="start" class="hero-gradient text-white py-12 sm:py-20 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div>
-                    <div class="inline-flex items-center gap-2 bg-brand-500/20 backdrop-blur-md border border-brand-400/30 text-brand-200 px-3 py-1 rounded-full text-xs font-medium mb-3 sm:mb-4">
+                    <div class="inline-flex items-center gap-2 bg-brand-500/20 backdrop-blur-md border border-brand-400/30 text-brand-200 px-3.5 py-1.5 rounded-full text-xs font-medium mb-4">
                         <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-                        Ihr Alltagshelfer in Löhne &amp; Umgebung
+                        Ihr zuverlässiger Alltagshelfer in Löhne &amp; Umgebung
                     </div>
                     
-                    <h1 class="font-heading font-extrabold text-2xl sm:text-4xl lg:text-5xl tracking-tight leading-tight mb-3 sm:mb-5">
+                    <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight mb-4">
                         Rundum-Service für Haus, Garten &amp; Grundstück
                     </h1>
                     
-                    <p class="text-xs sm:text-base text-slate-200 font-light mb-5 sm:mb-6 leading-relaxed">
-                        Keine Zeit, nicht vor Ort oder einfach Unterstützung gesucht? Ob Rasenpflege, Möbel aufbauen, Mülltonnen-Service, Beete pflegen oder Handgriffe im Haus – ich erledige das zuverlässig für Sie.
+                    <p class="text-sm sm:text-base text-slate-200 font-light mb-6 leading-relaxed">
+                        Keine Zeit, beruflich eingespannt oder Unterstützung gesucht? Ob Rasenpflege, Hecken schneiden, Möbel aufbauen oder Handgriffe im Haus – ich packe verlässlich und fair für Sie an.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-3 mb-6 sm:mb-8">
-                        <a href="#kalkulator" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold px-5 py-3 rounded-xl shadow-lg text-center transition-all flex items-center justify-center gap-2 text-xs sm:text-sm">
+                    <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                        <a href="#kalkulator" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg text-center transition-all flex items-center justify-center gap-2 text-sm">
                             <span>Preis-Orientierung ansehen</span>
                             <i class="fa-solid fa-calculator"></i>
                         </a>
-                        <a href="https://wa.me/4915750155796?text=Hallo%20Mike,%20ich%20brauche%20Hilfe%20rund%20ums%20Haus." target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-semibold px-5 py-3 rounded-xl text-center transition-all flex items-center justify-center gap-2 text-xs sm:text-sm">
+                        <a href="https://wa.me/4915750155796?text=Hallo%20Mike,%20ich%20brauche%20Hilfe%20rund%20ums%20Haus." target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-semibold px-6 py-3.5 rounded-xl text-center transition-all flex items-center justify-center gap-2 text-sm">
                             <i class="fa-brands fa-whatsapp text-green-400 text-base"></i>
                             <span>WhatsApp Chat</span>
                         </a>
                     </div>
+
+                    <div class="flex flex-wrap gap-3 text-xs font-medium text-slate-200 pt-2">
+                        <span class="bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1"></i> Faire Festpreise &amp; Absprache</span>
+                        <span class="bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1"></i> Schnell &amp; Pünktlich vor Ort</span>
+                    </div>
                 </div>
 
-                <div class="flex flex-col items-center justify-center text-center">
-                    <img src="logo.png" alt="GGG Logo" class="w-48 sm:w-64 lg:w-72 h-auto object-contain logo-glow mb-4 transition-all">
-                    <div class="flex flex-wrap justify-center gap-2 text-[11px] sm:text-xs font-medium text-slate-200">
-                        <span class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1"></i> Faire Festpreise &amp; Absprache</span>
-                        <span class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10"><i class="fa-solid fa-check text-brand-400 mr-1"></i> Zuverlässig &amp; Pünktlich</span>
+                <!-- Maßgeschneiderter weißer Bereich in edler Baum-/Natur-Form (abgerundetes Badge) für das transparente Logo -->
+                <div class="flex flex-col items-center justify-center">
+                    <div class="bg-white p-6 sm:p-8 rounded-[2.5rem] shadow-2xl max-w-sm w-full mx-auto text-center border-4 border-white/20 relative group transform hover:scale-[1.02] transition-all">
+                        <!-- Dezenter Baum-Akzent oben -->
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md text-xs">
+                            <i class="fa-solid fa-tree"></i>
+                        </div>
+                        <img src="logo.png" alt="GGG Logo" class="w-full h-auto object-contain py-2">
+                        <div class="mt-3 pt-3 border-t border-sand-200 flex justify-center gap-4 text-[11px] font-bold text-brand-800 uppercase tracking-wider">
+                            <span><i class="fa-solid fa-seedling text-brand-600 mr-1"></i> Garten</span>
+                            <span>•</span>
+                            <span><i class="fa-solid fa-house text-brand-600 mr-1"></i> Haus</span>
+                            <span>•</span>
+                            <span><i class="fa-solid fa-toolbox text-brand-600 mr-1"></i> Grundstück</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -268,9 +279,9 @@
                             <i class="fa-solid fa-tree"></i>
                         </div>
                         <h3 class="font-heading font-bold text-base text-slateDark mb-1.5">Hecken &amp; Sträucher</h3>
-                        <p class="text-slate-600 text-xs mb-3">Formschnitt und Rückschnitt inklusive Mitnahme.</p>
+                        <p class="text-slate-600 text-xs mb-3">Formschnitt, Rückschnitt und Längsschnitt.</p>
                         <ul class="text-slate-700 text-xs space-y-1.5 mb-5">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Hecken-Formschnitt</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Hecken-Formschnitt &amp; Rückschnitt</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Inkl. Grünschnitt-Entsorgung</li>
                         </ul>
                     </div>
@@ -377,9 +388,9 @@
                         <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
                             <div class="flex items-center">
                                 <input type="radio" name="pauschal-service" value="hecke" class="w-4 h-4 accent-brand-600" onchange="updatePauschalPrice()">
-                                <span class="ml-3 font-semibold text-xs sm:text-sm">Hecken- / Strauchschnitt (bis ca. 10m)</span>
+                                <span class="ml-3 font-semibold text-xs sm:text-sm">Hecken- / Strauchschnitt (auch längere Hecken)</span>
                             </div>
-                            <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 50 €</span>
+                            <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 45 €</span>
                         </label>
 
                         <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
@@ -411,7 +422,7 @@
                                 <input type="radio" name="pauschal-service" value="dachrinne" class="w-4 h-4 accent-brand-600" onchange="updatePauschalPrice()">
                                 <span class="ml-3 font-semibold text-xs sm:text-sm">Dachrinnenreinigung (kleines Haus)</span>
                             </div>
-                            <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 60 €</span>
+                            <span class="font-heading font-bold text-brand-800 text-xs sm:text-sm">ab 50 €</span>
                         </label>
 
                         <label class="flex items-center justify-between p-3 bg-sand-50 hover:bg-sand-100 rounded-xl border border-sand-200 cursor-pointer transition-all">
@@ -787,11 +798,11 @@
             switch(selectedRadio.value) {
                 case 'rasen': basePrice = 40; break;
                 case 'beete': basePrice = 35; break;
-                case 'hecke': basePrice = 50; break;
+                case 'hecke': basePrice = 45; break;
                 case 'moebel': basePrice = 35; break;
                 case 'muelltonne': basePrice = 15; break;
                 case 'lampe': basePrice = 20; break;
-                case 'dachrinne': basePrice = 60; break;
+                case 'dachrinne': basePrice = 50; break;
                 case 'sonstiges': basePrice = 30; break;
             }
 
